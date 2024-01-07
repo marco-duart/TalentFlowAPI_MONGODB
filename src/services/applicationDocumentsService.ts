@@ -9,14 +9,18 @@ class ApplicationDocumentsService {
     this.repository = repository;
   }
 
-  async createDocument(data: ApplicationDocumentsDTO): Promise<IApplicationDocuments> {
+  async create(data: ApplicationDocumentsDTO): Promise<IApplicationDocuments> {
     
     const createdDocument = await this.repository.create(data);
     return createdDocument;
   }
 
-  async getDocumentById(id: string): Promise<IApplicationDocuments | null> {
-    // Verificar se existe
+  async getAll(id: string): Promise<IApplicationDocuments | null> {
+    const document = await this.repository.findById(id);
+    return document;
+  }
+
+  async getById(id: string): Promise<IApplicationDocuments | null> {
     const document = await this.repository.findById(id);
     return document;
   }

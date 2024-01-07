@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, Types, model, Document } from "mongoose";
 
 export interface ICandidate extends Document {
   name: string;
@@ -18,11 +18,11 @@ export interface ICandidate extends Document {
     title: string;
     link: string;
   }[];
-  employmentHistory: Schema.Types.ObjectId;
-  applicationStatus: Schema.Types.ObjectId[];
-  interviews: Schema.Types.ObjectId[];
-  feedback: Schema.Types.ObjectId[];
-  applicationDocuments: Schema.Types.ObjectId[];
+  employmentHistory: Types.ObjectId;
+  applicationStatus: Types.ObjectId[];
+  interviews: Types.ObjectId[];
+  feedback: Types.ObjectId[];
+  applicationDocuments: Types.ObjectId[];
   active: boolean;
 }
 

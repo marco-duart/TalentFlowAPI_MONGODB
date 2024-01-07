@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, Types, model, Document } from "mongoose";
 
 export interface IHiringProcess extends Document {
   startDate: Date;
@@ -6,9 +6,9 @@ export interface IHiringProcess extends Document {
   stage: string; //(interviews, tests, etc.)
   recruiter: string;
   status: string; //(open, in progress, closed)
-  interviews: Schema.Types.ObjectId[];
-  applicationStatus: Schema.Types.ObjectId[];
-  recruiters: Schema.Types.ObjectId[];
+  interviews: Types.ObjectId[];
+  applicationStatus: Types.ObjectId[];
+  recruiters: Types.ObjectId[];
   active: boolean;
 }
 

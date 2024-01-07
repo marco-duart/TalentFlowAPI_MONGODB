@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, Types, model, Document } from "mongoose";
 
 export interface IInterview extends Document {
   dateTime: Date;
@@ -10,9 +10,9 @@ export interface IInterview extends Document {
   questions: string[];
   answers: string[];
   interviewFeedback: string;
-  candidate: Schema.Types.ObjectId;
-  hiringProcess: Schema.Types.ObjectId;
-  recruiter: Schema.Types.ObjectId;
+  candidate: Types.ObjectId;
+  hiringProcess: Types.ObjectId;
+  recruiter: Types.ObjectId;
   active: boolean;
 }
 

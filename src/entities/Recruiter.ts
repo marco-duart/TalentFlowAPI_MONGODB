@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, Types, model, Document } from "mongoose";
 
 export interface IRecruiter extends Document {
   name: string;
@@ -11,10 +11,10 @@ export interface IRecruiter extends Document {
       link: string;
     }[];
   };
-  assignedCandidateList: Schema.Types.ObjectId[];
-  candidateFeedback: Schema.Types.ObjectId[];
-  interviews: Schema.Types.ObjectId[];
-  hiringProcesses: Schema.Types.ObjectId[];
+  assignedCandidateList: Types.ObjectId[];
+  candidateFeedback: Types.ObjectId[];
+  interviews: Types.ObjectId[];
+  hiringProcesses: Types.ObjectId[];
   active: boolean;
 }
 

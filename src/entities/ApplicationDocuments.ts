@@ -1,10 +1,10 @@
-import { Schema, model } from "mongoose";
+import { Schema, Types, model, Document } from "mongoose";
 
 export interface IApplicationDocuments extends Document {
-  resume: string; //(file or text)
-  coverLetter: string; //(if applicable)
-  relevantDocuments: string; //maybe a image
-  candidate: Schema.Types.ObjectId;
+  resume: string; 
+  coverLetter: string; 
+  relevantDocuments: string[];
+  candidate: Types.ObjectId;
   active: boolean;
 }
 
@@ -20,6 +20,6 @@ const ApplicationDocumentsSchema = new Schema(
 );
 
 export const ApplicationDocuments = model(
-  "ApplicationDocuments",
+  'ApplicationDocuments',
   ApplicationDocumentsSchema
 );

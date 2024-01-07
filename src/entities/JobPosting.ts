@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, Types, model, Document } from "mongoose";
 
 export interface IJobPosting extends Document {
   title: string;
@@ -8,7 +8,7 @@ export interface IJobPosting extends Document {
   salary: string;
   startDate: Date;
   endDate: Date;
-  hiringProcess: Schema.Types.ObjectId[];
+  hiringProcess: Types.ObjectId[];
   active: boolean;
 }
 

@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, Types, model, Document } from "mongoose";
 
 export interface INotifications extends Document {
   notificationType: string; //(scheduled interview, status update, etc.)

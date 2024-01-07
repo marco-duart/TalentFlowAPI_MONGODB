@@ -1,6 +1,6 @@
 import { Model, Document, Schema } from 'mongoose';
 
-class BaseRepository<T> {
+class BaseRepository<T extends Document> {
   private model: Model<T>;
 
   constructor(model: Model<T>) {
@@ -13,6 +13,10 @@ class BaseRepository<T> {
 
   async findById(id: Schema.Types.ObjectId): Promise<T | null> {
     return this.model.findById(id).exec();
+  }
+
+  async findAll(): Promise<T[]> {
+    return this.model.find({ active: true }).exec();
   }
 
   async update(id: Schema.Types.ObjectId, data: Partial<T>): Promise<T | null> {
