@@ -5,7 +5,7 @@ export interface IFeedback extends Document {
   overallAssessment: string;
   specificComments: string;
   recommendation: string;
-  active: boolean;
+  deletedAt: Date;
 }
 
 const FeedbackSchema = new Schema(
@@ -14,7 +14,7 @@ const FeedbackSchema = new Schema(
     overallAssessment: { type: String, required: true },
     specificComments: { type: String, required: true },
     recommendation: { type: String, required: true },
-    active: { type: Boolean, required: true, default: true },
+    deletedAt: { type: Date, required: false},
   },
   { timestamps: true }
 );

@@ -9,16 +9,24 @@ class NotificationsService {
     this.repository = repository;
   }
 
-  async createDocument(data: NotificationsDTO): Promise<INotifications> {
-    
-    const createdDocument = await this.repository.create(data);
-    return createdDocument;
+  async create(data: NotificationsDTO): Promise<INotifications> {
+    return await this.repository.create(data);
   }
 
-  async getDocumentById(id: string): Promise<INotifications | null> {
-    // Verificar se existe
-    const document = await this.repository.findById(id);
-    return document;
+  async getAll(): Promise<INotifications[]> {
+    return await this.repository.findAll()
+  }
+
+  async getById(id: string): Promise<INotifications> {
+    return await this.repository.findById(id);
+  }
+
+  async update(id, data): Promise<INotifications> {
+    return await this.repository.update(id, data)
+  }
+
+  async softDelete(id): Promise<INotifications> {
+    return await this.repository.softDelete(id)
   }
 
 }

@@ -1,11 +1,11 @@
-import { Schema, Types, model, Document } from "mongoose";
+import { Schema, model, Document } from "mongoose";
 
 export interface IDashboard extends Document {
   overview: string;
   statistics: string;
   permissions: string;
   reporting: string;
-  active: boolean;
+  deletedAt: Date;
 }
 
 const DashboardSchema = new Schema(
@@ -14,7 +14,7 @@ const DashboardSchema = new Schema(
     statistics: { type: String, required: true },
     permissions: { type: String, required: true },
     reporting: { type: String, required: true },
-    active: { type: Boolean, required: true, default: true },
+    deletedAt: { type: Date, required: false},
   },
   { timestamps: true }
 );

@@ -10,19 +10,23 @@ class ApplicationDocumentsService {
   }
 
   async create(data: ApplicationDocumentsDTO): Promise<IApplicationDocuments> {
-    
-    const createdDocument = await this.repository.create(data);
-    return createdDocument;
+    return await this.repository.create(data);
   }
 
-  async getAll(id: string): Promise<IApplicationDocuments | null> {
-    const document = await this.repository.findById(id);
-    return document;
+  async getAll(): Promise<IApplicationDocuments[]> {
+    return await this.repository.findAll(id);
   }
 
-  async getById(id: string): Promise<IApplicationDocuments | null> {
-    const document = await this.repository.findById(id);
-    return document;
+  async getById(id: string): Promise<IApplicationDocuments> {
+    return await this.repository.findById(id);
+  }
+
+  async update(id: string, data: ApplicationDocumentsDTO): Promise<IApplicationDocuments> {
+    return await this.repository.update(id, data)
+  }
+
+  async softDelete(id): Promise<IApplicationDocuments> {
+    return await this.repository.softDelete(id)
   }
 
 }

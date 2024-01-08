@@ -1,26 +1,34 @@
-import EmploymentRepository from '../repositories/employmentRepository';
+import EmploymentHistoryRepository from '../repositories/employmentHistoryRepository';
 import EmploymentDTO from './employmentDTO';
-import { IEmployment } from '../entities/Employment';
+import { IEmploymentHistory } from '../entities/EmploymentHistory';
 
-class EmploymentService {
-  private repository: EmploymentRepository;
+class EmploymentHistoryService {
+  private repository: EmploymentHistoryRepository;
 
-  constructor(repository: EmploymentRepository) {
+  constructor(repository: EmploymentHistoryRepository) {
     this.repository = repository;
   }
 
-  async createDocument(data: EmploymentDTO): Promise<IEmployment> {
-    
-    const createdDocument = await this.repository.create(data);
-    return createdDocument;
+  async create(data: EmploymentDTO): Promise<IEmploymentHistory> {
+    return await this.repository.create(data);
   }
 
-  async getDocumentById(id: string): Promise<IEmployment | null> {
-    // Verificar se existe
-    const document = await this.repository.findById(id);
-    return document;
+  async getAll(): Promise<IEmploymentHistory[]> {
+    return await this.repository.findAll()
+  }
+
+  async getById(id: string): Promise<IEmploymentHistory> {
+    return await this.repository.findById(id);
+  }
+
+  async update(id, data): Promise<IEmploymentHistory> {
+    return await this.repository.update(id, data)
+  }
+
+  async softDelete(id): Promise<IEmploymentHistory> {
+    return await this.repository.softDelete(id)
   }
 
 }
 
-export default EmploymentService;
+export default EmploymentHistoryService;

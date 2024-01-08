@@ -14,7 +14,7 @@ export interface ICompany extends Document {
     }[];
   };
   jobPostings: Types.ObjectId;
-  active: boolean;
+  deletedAt: Date;
 }
 
 const CompanySchema = new Schema(
@@ -30,7 +30,7 @@ const CompanySchema = new Schema(
       },
     ],
     jobPostings: [{ type: Schema.Types.ObjectId, ref: "JobPosting" }],
-    active: { type: Boolean, required: true, default: true },
+    deletedAt: { type: Date, required: false},
   },
   { timestamps: true }
 );

@@ -9,16 +9,24 @@ class FeedbackService {
     this.repository = repository;
   }
 
-  async createDocument(data: FeedbackDTO): Promise<IFeedback> {
-    
-    const createdDocument = await this.repository.create(data);
-    return createdDocument;
+  async create(data: FeedbackDTO): Promise<IFeedback> {
+    return await this.repository.create(data);
   }
 
-  async getDocumentById(id: string): Promise<IFeedback | null> {
-    // Verificar se existe
-    const document = await this.repository.findById(id);
-    return document;
+  async getAll(): Promise<IFeedback[]> {
+    return await this.repository.findAll()
+  }
+
+  async getById(id: string): Promise<IFeedback> {
+    return await this.repository.findById(id);
+  }
+
+  async update(id, data): Promise<IFeedback> {
+    return await this.repository.update(id, data)
+  }
+
+  async softDelete(id): Promise<IFeedback> {
+    return await this.repository.softDelete(id)
   }
 
 }

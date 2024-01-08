@@ -1,18 +1,14 @@
 import { Request, Response } from 'express';
-import ApplicationDocumentsService from './applicationDocumentsService';
-import ApplicationDocumentsDTO from './applicationDocumentsDTO';
+import ApplicationDocumentsService from '../services/applicationDocumentsService';
+import { UpdateApplicationDocumentsDTO, CreateApplicationDocumentsDTO } from '../dto/applicationDocumentsDTO';
 
 class ApplicationDocumentsController {
-  private service: ApplicationDocumentsService;
+  constructor(private service: ApplicationDocumentsService) {}
 
-  constructor(service: ApplicationDocumentsService) {
-    this.service = service;
-  }
-
-  async createDocument(req: Request, res: Response): Promise<void> {
+  async create(req: Request, res: Response): Promise<void> {
     try {
-      const data: ApplicationDocumentsDTO = req.body;
-      const createdDocument = await this.service.createDocument(data);
+      const data: CreateApplicationDocumentsDTO = req.body;
+      const createdDocument = await this.service.create(data);
       res.status(201).json(createdDocument);
     } catch (error) {
       console.error(error);
@@ -20,10 +16,10 @@ class ApplicationDocumentsController {
     }
   }
 
-  async getDocumentById(req: Request, res: Response): Promise<void> {
+  async getById(req: Request, res: Response): Promise<void> {
     try {
       const id: string = req.params.id;
-      const document = await this.service.getDocumentById(id);
+      const document = await this.service.getById(id);
 
       if (document) {
         res.json(document);
@@ -36,11 +32,11 @@ class ApplicationDocumentsController {
     }
   }
 
-  async updateDocument(req: Request, res: Response): Promise<void> {
+  async update(req: Request, res: Response): Promise<void> {
     try {
       const id: string = req.params.id;
-      const data: ApplicationDocumentsDTO = req.body;
-      const updatedDocument = await this.service.updateDocument(id, data);
+      const data: UpdateApplicationDocumentsDTO = req.body;
+      const updatedDocument = await this.service.update(id, data);
 
       if (updatedDocument) {
         res.json(updatedDocument);
@@ -53,10 +49,10 @@ class ApplicationDocumentsController {
     }
   }
 
-  async deleteDocument(req: Request, res: Response): Promise<void> {
+  async delete(req: Request, res: Response): Promise<void> {
     try {
       const id: string = req.params.id;
-      const deletedDocument = await this.service.deleteDocument(id);
+      const deletedDocument = await this.service.softDelete(id);
 
       if (deletedDocument) {
         res.json(deletedDocument);

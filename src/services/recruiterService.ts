@@ -9,16 +9,24 @@ class RecruiterService {
     this.repository = repository;
   }
 
-  async createDocument(data: RecruiterDTO): Promise<IRecruiter> {
-    
-    const createdDocument = await this.repository.create(data);
-    return createdDocument;
+  async create(data: RecruiterDTO): Promise<IRecruiter> {
+    return await this.repository.create(data);
   }
 
-  async getDocumentById(id: string): Promise<IRecruiter | null> {
-    // Verificar se existe
-    const document = await this.repository.findById(id);
-    return document;
+  async getAll(): Promise<IRecruiter> {
+    return await this.repository.findAll()
+  }
+
+  async getById(id: string): Promise<IRecruiter> {
+    return await this.repository.findById(id);
+  }
+
+  async update(id, data): Promise<IRecruiter> {
+    return await this.repository.update(id, data)
+  }
+
+  async softDelete(id): Promise<IRecruiter> {
+    return await this.repository.softDelete(id)
   }
 
 }

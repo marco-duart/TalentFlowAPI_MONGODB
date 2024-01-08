@@ -9,16 +9,24 @@ class CompanyService {
     this.repository = repository;
   }
 
-  async createDocument(data: CompanyDTO): Promise<ICompany> {
-    
-    const createdDocument = await this.repository.create(data);
-    return createdDocument;
+  async create(data: CompanyDTO): Promise<ICompany> {
+    return await this.repository.create(data);
   }
 
-  async getDocumentById(id: string): Promise<ICompany | null> {
-    // Verificar se existe
-    const document = await this.repository.findById(id);
-    return document;
+  async getAll(): Promise<ICompany[]> {
+    return await this.repository.findAll()
+  }
+
+  async getById(id: string): Promise<ICompany> {
+    return await this.repository.findById(id);
+  }
+
+  async update(id, data): Promise<ICompany> {
+    return await this.repository.update(id, data)
+  }
+
+  async softDelete(id): Promise<ICompany> {
+    return await this.repository.softDelete(id)
   }
 
 }

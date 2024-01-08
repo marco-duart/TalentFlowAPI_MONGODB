@@ -1,4 +1,4 @@
-import { Schema, Types, model, Document } from "mongoose";
+import { Schema, model, Document } from "mongoose";
 
 export interface IEmploymentHistory extends Document {
   companyName: string;
@@ -6,7 +6,7 @@ export interface IEmploymentHistory extends Document {
   startDate: Date;
   endDate: Date;
   achievements: string;
-  active: boolean;
+  deletedAt: Date;
 }
 
 const EmploymentHistorySchema = new Schema(
@@ -16,7 +16,7 @@ const EmploymentHistorySchema = new Schema(
     startDate: { type: Date, required: true },
     endDate: { type: Date, required: true },
     achievements: { type: String, required: true },
-    active: { type: Boolean, required: true, default: true },
+    deletedAt: { type: Date, required: false},
   },
   { timestamps: true }
 );

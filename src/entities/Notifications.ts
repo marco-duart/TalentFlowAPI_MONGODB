@@ -1,11 +1,11 @@
-import { Schema, Types, model, Document } from "mongoose";
+import { Schema, model, Document } from "mongoose";
 
 export interface INotifications extends Document {
   notificationType: string; //(scheduled interview, status update, etc.)
   recipient: string;
   message: string;
   dateTime: Date;
-  active: boolean;
+  deletedAt: Date;
 }
 
 const NotificationsSchema = new Schema(
@@ -14,7 +14,7 @@ const NotificationsSchema = new Schema(
     recipient: { type: Schema.Types.ObjectId, required: true },
     message: { type: String, required: true },
     dateTime: { type: Date, required: true },
-    active: { type: Boolean, required: true, default: true },
+    deletedAt: { type: Date, required: false},
   },
   { timestamps: true }
 );

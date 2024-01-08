@@ -9,16 +9,24 @@ class InterviewService {
     this.repository = repository;
   }
 
-  async createDocument(data: InterviewDTO): Promise<IInterview> {
-    
-    const createdDocument = await this.repository.create(data);
-    return createdDocument;
+  async create(data: InterviewDTO): Promise<IInterview> {
+    return await this.repository.create(data);
   }
 
-  async getDocumentById(id: string): Promise<IInterview | null> {
-    // Verificar se existe
-    const document = await this.repository.findById(id);
-    return document;
+  async getAll(): Promise<IInterview[]> {
+    return await this.repository.findAll()
+  }
+
+  async getById(id: string): Promise<IInterview> {
+    return await this.repository.findById(id);
+  }
+
+  async update(id): Promise<IInterview> {
+    return await this.repository.update(id)
+  }
+
+  async softDelete(id): Promise<IInterview> {
+    return await this.repository.softDelete(id)
   }
 
 }

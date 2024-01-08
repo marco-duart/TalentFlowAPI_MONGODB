@@ -9,16 +9,24 @@ class DashboardService {
     this.repository = repository;
   }
 
-  async createDocument(data: DashboardDTO): Promise<IDashboard> {
-    
-    const createdDocument = await this.repository.create(data);
-    return createdDocument;
+  async create(data: DashboardDTO): Promise<IDashboard> {
+    return await this.repository.create(data);
   }
 
-  async getDocumentById(id: string): Promise<IDashboard | null> {
-    // Verificar se existe
-    const document = await this.repository.findById(id);
-    return document;
+  async getAll(): Promise<IDashboard> {
+    return this.repository.findAll()
+  }
+
+  async getById(id: string): Promise<IDashboard | null> {
+    return await this.repository.findById(id);
+  }
+
+  async update(id, data): Promise<IDashboard> {
+    return await this.repository.update(id, data)
+  }
+
+  async softDelete(id): Promise<IDashboard> {
+    return await this.repository.softDelete(id)
   }
 
 }

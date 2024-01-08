@@ -13,7 +13,7 @@ export interface IInterview extends Document {
   candidate: Types.ObjectId;
   hiringProcess: Types.ObjectId;
   recruiter: Types.ObjectId;
-  active: boolean;
+  deletedAt: Date;
 }
 
 const InterviewSchema = new Schema(
@@ -34,7 +34,7 @@ const InterviewSchema = new Schema(
     candidate: { type: Schema.Types.ObjectId, ref: "Candidate" },
     hiringProcess: { type: Schema.Types.ObjectId, ref: "HiringProcess" },
     recruiter: { type: Schema.Types.ObjectId, ref: "Recruiter" },
-    active: { type: Boolean, required: true, default: true },
+    deletedAt: { type: Date, required: false},
   },
   { timestamps: true }
 );

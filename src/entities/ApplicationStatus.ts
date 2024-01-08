@@ -5,7 +5,7 @@ export interface IApplicationStatus extends Document {
   additionalComments: string;
   candidate: Types.ObjectId;
   hiringProcess: Types.ObjectId;
-  active: boolean;
+  deletedAt: Date;
 }
 
 const ApplicationStatusSchema = new Schema(
@@ -14,7 +14,7 @@ const ApplicationStatusSchema = new Schema(
     additionalComments: { type: String, required: false },
     candidate: { type: Schema.Types.ObjectId, ref: "Candidate" },
     hiringProcess: { type: Schema.Types.ObjectId, ref: "HiringProcess" },
-    active: { type: Boolean, required: true, default: true },
+    deletedAt: { type: Date, required: false},
   },
   { timestamps: true }
 );

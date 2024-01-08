@@ -23,7 +23,7 @@ export interface ICandidate extends Document {
   interviews: Types.ObjectId[];
   feedback: Types.ObjectId[];
   applicationDocuments: Types.ObjectId[];
-  active: boolean;
+  deletedAt: Date;
 }
 
 const CandidateSchema = new Schema(
@@ -61,7 +61,7 @@ const CandidateSchema = new Schema(
     applicationDocuments: [
       { type: Schema.Types.ObjectId, ref: "ApplicationDocument" },
     ],
-    active: { type: Boolean, required: true, default: true },
+    deletedAt: { type: Date, required: false},
   },
   { timestamps: true }
 );

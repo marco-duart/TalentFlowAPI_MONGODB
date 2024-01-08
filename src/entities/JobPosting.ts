@@ -9,7 +9,7 @@ export interface IJobPosting extends Document {
   startDate: Date;
   endDate: Date;
   hiringProcess: Types.ObjectId[];
-  active: boolean;
+  deletedAt: Date;
 }
 
 const JobPostingSchema = new Schema(
@@ -22,7 +22,7 @@ const JobPostingSchema = new Schema(
     startDate: { type: Date, required: true },
     endDate: { type: Date, required: true },
     hiringProcess: [{ type: Schema.Types.ObjectId, ref: "HiringProcess" }],
-    active: { type: Boolean, required: true, default: true },
+    deletedAt: { type: Date, required: false},
   },
   { timestamps: true }
 );

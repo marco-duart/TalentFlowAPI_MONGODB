@@ -15,7 +15,7 @@ export interface IRecruiter extends Document {
   candidateFeedback: Types.ObjectId[];
   interviews: Types.ObjectId[];
   hiringProcesses: Types.ObjectId[];
-  active: boolean;
+  deletedAt: Date;
 }
 
 const RecruiterSchema = new Schema(
@@ -36,7 +36,7 @@ const RecruiterSchema = new Schema(
     candidateFeedback: [{ type: Schema.Types.ObjectId, ref: "Feedback" }],
     interviews: [{ type: Schema.Types.ObjectId, ref: "Interview" }],
     hiringProcesses: [{ type: Schema.Types.ObjectId, ref: "HiringProcess" }],
-    active: { type: Boolean, required: true, default: true },
+    deletedAt: { type: Date, required: false},
   },
   { timestamps: true }
 );

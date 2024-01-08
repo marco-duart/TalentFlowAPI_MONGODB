@@ -5,7 +5,7 @@ export interface IApplicationDocuments extends Document {
   coverLetter: string; 
   relevantDocuments: string[];
   candidate: Types.ObjectId;
-  active: boolean;
+  deletedAt: Date;
 }
 
 const ApplicationDocumentsSchema = new Schema(
@@ -14,7 +14,7 @@ const ApplicationDocumentsSchema = new Schema(
     coverLetter: { type: String, required: false },
     relevantDocuments: [{ type: String, required: false }],
     candidate: { type: Schema.Types.ObjectId, ref: "Candidate" },
-    active: { type: Boolean, required: true, default: true },
+    deletedAt: { type: Date, required: false},
   },
   { timestamps: true }
 );

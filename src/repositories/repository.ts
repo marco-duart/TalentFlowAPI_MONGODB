@@ -8,23 +8,43 @@ class BaseRepository<T extends Document> {
   }
 
   async create(data: Partial<T>): Promise<T> {
-    return this.model.create({ ...data, active: true });
+    const createdDocument = await this.model.create(data);
+    if (!createdDocument) {
+      throw new Error('Erro ao criar o Item');
+    }
+    return createdDocument;
   }
 
   async findById(id: Schema.Types.ObjectId): Promise<T | null> {
-    return this.model.findById(id).exec();
+    const document = await this.model.findById(id).exec();
+    if (!document) {
+      throw new Error(`ID ${id} - Item não encontrado`);
+    }
+    return document;
   }
 
   async findAll(): Promise<T[]> {
-    return this.model.find({ active: true }).exec();
+    const documents = await this.model.find({ deletedAt: null }).exec();
+    if (!documents || documents.length === 0) {
+      throw new Error('Nenhum item encontrado');
+    }
+    return documents;
   }
 
   async update(id: Schema.Types.ObjectId, data: Partial<T>): Promise<T | null> {
-    return this.model.findByIdAndUpdate(id, { ...data }, { new: true }).exec();
+    const updatedDocument = await this.model.findByIdAndUpdate(id, { ...data }, { new: true }).exec();
+    if (!updatedDocument) {
+      throw new Error(`ID ${id} - Item não encontrado para atualização`);
+    }
+    return updatedDocument;
   }
 
   async softDelete(id: Schema.Types.ObjectId): Promise<T | null> {
-    return this.model.findByIdAndUpdate(id, { active: false }, { new: true }).exec();
+    const deletedDocument = await this.model.findByIdAndUpdate(id, { deletedAt: new Date() }, { new: true }).exec();
+    if (!deletedDocument) {
+      throw new Error(`ID ${id} - Item não encontrado para exclusão`);
+    }
+    return deletedDocument
   }
 }
 

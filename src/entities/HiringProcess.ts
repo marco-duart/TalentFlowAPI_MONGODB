@@ -9,7 +9,7 @@ export interface IHiringProcess extends Document {
   interviews: Types.ObjectId[];
   applicationStatus: Types.ObjectId[];
   recruiters: Types.ObjectId[];
-  active: boolean;
+  deletedAt: Date;
 }
 
 const HiringProcessSchema = new Schema(
@@ -27,7 +27,7 @@ const HiringProcessSchema = new Schema(
       { type: Schema.Types.ObjectId, ref: "ApplicationStatus" },
     ],
     recruiters: [{ type: Schema.Types.ObjectId, ref: "Recruiter" }],
-    active: { type: Boolean, required: true, default: true },
+    deletedAt: { type: Date, required: false},
   },
   { timestamps: true }
 );
