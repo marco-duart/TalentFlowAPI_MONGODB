@@ -1,6 +1,9 @@
-import { Request, Response } from 'express';
-import ApplicationDocumentsService from '../services/applicationDocumentsService';
-import { UpdateApplicationDocumentsDTO, CreateApplicationDocumentsDTO } from '../dto/applicationDocumentsDTO';
+import { Request, Response } from "express";
+import ApplicationDocumentsService from "../services/applicationDocumentsService";
+import {
+  UpdateApplicationDocumentsDTO,
+  CreateApplicationDocumentsDTO,
+} from "../dto/applicationDocumentsDTO";
 
 class ApplicationDocumentsController {
   constructor(private service: ApplicationDocumentsService) {}
@@ -12,7 +15,7 @@ class ApplicationDocumentsController {
       res.status(201).json(createdDocument);
     } catch (error) {
       console.error(error);
-      res.status(500).send('Internal Server Error');
+      res.status(500).send("Internal Server Error");
     }
   }
 
@@ -24,11 +27,26 @@ class ApplicationDocumentsController {
       if (document) {
         res.json(document);
       } else {
-        res.status(404).send('Document not found');
+        res.status(404).send("Not found");
       }
     } catch (error) {
       console.error(error);
-      res.status(500).send('Internal Server Error');
+      res.status(500).send("Internal Server Error");
+    }
+  }
+
+  async getAll(req: Request, res: Response): Promise<void> {
+    try {
+      const documents = await this.service.getAll();
+
+      if (documents) {
+        res.status(201).json(documents);
+      } else {
+        res.status(404).send("Not found");
+      }
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Internal Server Error");
     }
   }
 
@@ -39,13 +57,13 @@ class ApplicationDocumentsController {
       const updatedDocument = await this.service.update(id, data);
 
       if (updatedDocument) {
-        res.json(updatedDocument);
+        res.status(201).json(updatedDocument);
       } else {
-        res.status(404).send('Document not found');
+        res.status(404).send("Not found");
       }
     } catch (error) {
       console.error(error);
-      res.status(500).send('Internal Server Error');
+      res.status(500).send("Internal Server Error");
     }
   }
 
@@ -55,13 +73,13 @@ class ApplicationDocumentsController {
       const deletedDocument = await this.service.softDelete(id);
 
       if (deletedDocument) {
-        res.json(deletedDocument);
+        res.status(201).json(deletedDocument);
       } else {
-        res.status(404).send('Document not found');
+        res.status(404).send("Not found");
       }
     } catch (error) {
       console.error(error);
-      res.status(500).send('Internal Server Error');
+      res.status(500).send("Internal Server Error");
     }
   }
 }

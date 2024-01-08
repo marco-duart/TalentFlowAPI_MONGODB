@@ -17,7 +17,7 @@ class ApplicationStatusService {
     return await this.repository.findAll()
   }
 
-  async getById(id: string): Promise<IApplicationStatus> {
+  async getById(id): Promise<IApplicationStatus> {
     return await this.repository.findById(id);
   }
 
@@ -25,7 +25,7 @@ class ApplicationStatusService {
     return await this.repository.update(id, data)
   }
 
-  async softDelete(): Promise<IApplicationStatus> {
+  async softDelete(id): Promise<IApplicationStatus> {
     return await this.repository.softDelete(id)
   }
 
