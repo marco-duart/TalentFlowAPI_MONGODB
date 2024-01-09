@@ -9,7 +9,7 @@ export interface IEmploymentHistory extends Document {
   deletedAt: Date;
 }
 
-const EmploymentHistorySchema = new Schema(
+export const EmploymentHistorySchema = new Schema(
   {
     companyName: { type: String, required: true },
     position: { type: String, required: true },

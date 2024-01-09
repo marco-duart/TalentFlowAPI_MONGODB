@@ -1,4 +1,4 @@
-import { ApplicationDocuments, ApplicationDocumentsSchema, IApplicationDocuments } from "../entities/ApplicationDocuments";
+import { ApplicationDocumentsSchema, IApplicationDocuments } from "../entities/ApplicationDocuments";
 import ApplicationDocumentsRepository from "../repositories/applicationDocumentsRepository";
 import ApplicationDocumentsService from "../services/applicationDocumentsService";
 import ApplicationDocumentsController from "../controllers/applicationDocumentsController";

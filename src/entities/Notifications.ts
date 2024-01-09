@@ -8,7 +8,7 @@ export interface INotifications extends Document {
   deletedAt: Date;
 }
 
-const NotificationsSchema = new Schema(
+export const NotificationsSchema = new Schema(
   {
     notificationType: { type: String, required: true },
     recipient: { type: Schema.Types.ObjectId, required: true },

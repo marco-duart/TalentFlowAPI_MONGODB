@@ -16,7 +16,7 @@ export interface IInterview extends Document {
   deletedAt: Date;
 }
 
-const InterviewSchema = new Schema(
+export const InterviewSchema = new Schema(
   {
     dateTime: { type: Date, required: true },
     interviewType: { type: String, required: true },

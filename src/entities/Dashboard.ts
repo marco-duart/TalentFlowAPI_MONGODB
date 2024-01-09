@@ -8,7 +8,7 @@ export interface IDashboard extends Document {
   deletedAt: Date;
 }
 
-const DashboardSchema = new Schema(
+export const DashboardSchema = new Schema(
   {
     overview: { type: String, required: true },
     statistics: { type: String, required: true },

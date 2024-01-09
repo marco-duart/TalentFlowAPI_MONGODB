@@ -18,7 +18,7 @@ export interface IRecruiter extends Document {
   deletedAt: Date;
 }
 
-const RecruiterSchema = new Schema(
+export const RecruiterSchema = new Schema(
   {
     name: { type: String, required: true },
     position: { type: String, required: true },

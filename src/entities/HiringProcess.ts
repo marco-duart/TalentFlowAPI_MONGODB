@@ -12,7 +12,7 @@ export interface IHiringProcess extends Document {
   deletedAt: Date;
 }
 
-const HiringProcessSchema = new Schema(
+export const HiringProcessSchema = new Schema(
   {
     startDate: { type: Date, required: true },
     endDate: { type: Date, required: false },

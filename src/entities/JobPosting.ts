@@ -12,7 +12,7 @@ export interface IJobPosting extends Document {
   deletedAt: Date;
 }
 
-const JobPostingSchema = new Schema(
+export const JobPostingSchema = new Schema(
   {
     title: { type: String, required: true },
     description: { type: String, required: true },

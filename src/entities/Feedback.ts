@@ -8,7 +8,7 @@ export interface IFeedback extends Document {
   deletedAt: Date;
 }
 
-const FeedbackSchema = new Schema(
+export const FeedbackSchema = new Schema(
   {
     feedbackDate: { type: Date, required: true },
     overallAssessment: { type: String, required: true },
