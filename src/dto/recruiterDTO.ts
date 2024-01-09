@@ -1,6 +1,6 @@
 import { Types } from "mongoose";
 
-export class CreateNotificationsDTO {
+export class CreateRecruiterDTO {
   name: string;
   position: string;
   contactInformation: {
@@ -16,7 +16,7 @@ export class CreateNotificationsDTO {
   interviews: Types.ObjectId[];
   hiringProcesses: Types.ObjectId[];
 
-  constructor(Data: CreateNotifications) {
+  constructor(Data: CreateRecruiter) {
     this.name = Data.name;
     this.position = Data.position;
     this.contactInformation = Data.contactInformation;
@@ -27,7 +27,7 @@ export class CreateNotificationsDTO {
   }
 }
 
-export class UpdateNotificationsDTO {
+export class UpdateRecruiterDTO {
   id: Types.ObjectId;
   name: string;
   position: string;
@@ -44,7 +44,7 @@ export class UpdateNotificationsDTO {
   interviews: Types.ObjectId[];
   hiringProcesses: Types.ObjectId[];
 
-  constructor(Data: UpdateNotifications) {
+  constructor(Data: UpdateRecruiter) {
     this.id = new Types.ObjectId(Data.id);
     this.name = Data.name;
     this.position = Data.position;
@@ -58,7 +58,7 @@ export class UpdateNotificationsDTO {
 
 //TYPES
 
-type CreateNotifications = {
+type CreateRecruiter = {
   name: string;
   position: string;
   contactInformation: {
@@ -75,7 +75,7 @@ type CreateNotifications = {
   hiringProcesses: string[];
 };
 
-type UpdateNotifications = {
+type UpdateRecruiter = {
   id: string;
   name: string;
   position: string;

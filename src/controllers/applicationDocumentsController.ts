@@ -11,8 +11,8 @@ class ApplicationDocumentsController {
   async create(req: Request, res: Response): Promise<void> {
     try {
       const data: CreateApplicationDocumentsDTO = req.body;
-      const createdDocument = await this.service.create(data);
-      res.status(201).json(createdDocument);
+      const createdApplicationDocument = await this.service.create(data);
+      res.status(201).json(createdApplicationDocument);
     } catch (error) {
       console.error(error);
       res.status(500).send("Internal Server Error");
@@ -22,10 +22,10 @@ class ApplicationDocumentsController {
   async getById(req: Request, res: Response): Promise<void> {
     try {
       const id: string = req.params.id;
-      const document = await this.service.getById(id);
+      const applicationDocument = await this.service.getById(id);
 
-      if (document) {
-        res.json(document);
+      if (applicationDocument) {
+        res.json(applicationDocument);
       } else {
         res.status(404).send("Not found");
       }
@@ -37,10 +37,10 @@ class ApplicationDocumentsController {
 
   async getAll(req: Request, res: Response): Promise<void> {
     try {
-      const documents = await this.service.getAll();
+      const applicationDocumentsArray = await this.service.getAll();
 
-      if (documents) {
-        res.status(201).json(documents);
+      if (applicationDocumentsArray) {
+        res.status(201).json(applicationDocumentsArray);
       } else {
         res.status(404).send("Not found");
       }
@@ -70,10 +70,10 @@ class ApplicationDocumentsController {
   async delete(req: Request, res: Response): Promise<void> {
     try {
       const id: string = req.params.id;
-      const deletedDocument = await this.service.softDelete(id);
+      const deletedApplicationDocument = await this.service.softDelete(id);
 
-      if (deletedDocument) {
-        res.status(201).json(deletedDocument);
+      if (deletedApplicationDocument) {
+        res.status(201).json(deletedApplicationDocument);
       } else {
         res.status(404).send("Not found");
       }

@@ -21,8 +21,8 @@ class InterviewService {
     return await this.repository.findById(id);
   }
 
-  async update(id): Promise<IInterview> {
-    return await this.repository.update(id)
+  async update(id, data): Promise<IInterview> {
+    return await this.repository.update(id, data)
   }
 
   async softDelete(id): Promise<IInterview> {

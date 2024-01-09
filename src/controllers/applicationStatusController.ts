@@ -11,8 +11,8 @@ class ApplicationStatusController {
   async create(req: Request, res: Response): Promise<void> {
     try {
       const data: CreateApplicationStatusDTO = req.body;
-      const createdDocument = await this.service.create(data);
-      res.status(201).json(createdDocument);
+      const createdApplicationStatus = await this.service.create(data);
+      res.status(201).json(createdApplicationStatus);
     } catch (error) {
       console.error(error);
       res.status(500).send("Internal Server Error");
@@ -22,10 +22,10 @@ class ApplicationStatusController {
   async getById(req: Request, res: Response): Promise<void> {
     try {
       const id: string = req.params.id;
-      const document = await this.service.getById(id);
+      const applicationStatus = await this.service.getById(id);
 
-      if (document) {
-        res.status(201).json(document);
+      if (applicationStatus) {
+        res.status(201).json(applicationStatus);
       } else {
         res.status(404).send("Not found");
       }
@@ -37,10 +37,10 @@ class ApplicationStatusController {
 
   async getAll(req: Request, res: Response): Promise<void> {
     try {
-      const documents = await this.service.getAll();
+      const applicationStatusArray = await this.service.getAll();
 
-      if (documents) {
-        res.status(201).json(documents);
+      if (applicationStatusArray) {
+        res.status(201).json(applicationStatusArray);
       } else {
         res.status(404).send("Not found");
       }
@@ -54,25 +54,25 @@ class ApplicationStatusController {
     try {
       const id: string = req.params.id;
       const data: UpdateApplicationStatusDTO = req.body;
-      const updatedDocument = await this.service.update(id, data);
-      if (updatedDocument) {
-        res.status(201).json(updatedDocument);
+      const updatedApplicationStatus = await this.service.update(id, data);
+      if (updatedApplicationStatus) {
+        res.status(201).json(updatedApplicationStatus);
       } else {
         res.status(404).send("Not found");
       }
     } catch (error) {
       console.error(error);
-      res.status(500).json("Internal Server Error");
+      res.status(500).send("Internal Server Error");
     }
   }
 
   async delete(req: Request, res: Response): Promise<void> {
     try {
       const id: string = req.params.id;
-      const deletedDocument = await this.service.softDelete(id);
+      const deletedApplicationStatus = await this.service.softDelete(id);
 
-      if (deletedDocument) {
-        res.status(200).json(deletedDocument);
+      if (deletedApplicationStatus) {
+        res.status(200).json(deletedApplicationStatus);
       } else {
         res.status(404).send("Not found");
       }

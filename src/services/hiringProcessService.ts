@@ -9,7 +9,7 @@ class HiringProcessService {
     this.repository = repository;
   }
 
-  async createDocument(data: HiringProcessDTO): Promise<IHiringProcess> {
+  async create(data: HiringProcessDTO): Promise<IHiringProcess> {
     return await this.repository.create(data);
   }
 
