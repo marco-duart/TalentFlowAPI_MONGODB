@@ -17,7 +17,7 @@ export interface ICompany extends Document {
   deletedAt: Date;
 }
 
-const CompanySchema = new Schema(
+export const CompanySchema = new Schema(
   {
     companyName: { type: String, required: true },
     sector: { type: String, required: true },

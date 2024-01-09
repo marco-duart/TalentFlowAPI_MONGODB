@@ -8,7 +8,7 @@ export interface IApplicationDocuments extends Document {
   deletedAt: Date;
 }
 
-const ApplicationDocumentsSchema = new Schema(
+export const ApplicationDocumentsSchema = new Schema(
   {
     resume: { type: String, required: true },
     coverLetter: { type: String, required: false },

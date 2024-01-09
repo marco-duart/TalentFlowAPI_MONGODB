@@ -26,7 +26,7 @@ export interface ICandidate extends Document {
   deletedAt: Date;
 }
 
-const CandidateSchema = new Schema(
+export const CandidateSchema = new Schema(
   {
     name: { type: String, required: true },
     email: { type: String, required: true },

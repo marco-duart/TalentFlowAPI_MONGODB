@@ -1,13 +1,7 @@
-import "dotenv/config"
-import express from "express"
+import { app } from "./server"
+import { MongoConnection } from "./database/connection"
+import { env } from "./configs/env"
 
-import { connectionDatabase } from "./database/connection"
+MongoConnection.initialize()
 
-connectionDatabase()
-
-const app = express()
-
-app.use(express.json())
-//app.use(Router)
-
-app.listen(3000, () => console.log("Server is running 🚀"))
+app.listen(env.PORT, () => console.log(`Server is running on port ${env.PORT} 🚀`))

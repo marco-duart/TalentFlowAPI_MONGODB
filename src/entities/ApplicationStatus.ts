@@ -8,7 +8,7 @@ export interface IApplicationStatus extends Document {
   deletedAt: Date;
 }
 
-const ApplicationStatusSchema = new Schema(
+export const ApplicationStatusSchema = new Schema(
   {
     status: { type: String, required: true },
     additionalComments: { type: String, required: false },
