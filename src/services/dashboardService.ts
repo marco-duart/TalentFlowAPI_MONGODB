@@ -1,5 +1,5 @@
 import DashboardRepository from '../repositories/dashboardRepository';
-import DashboardDTO from './dashboardDTO';
+import { UpdateDashboardDTO, CreateDashboardDTO } from '../dto/dashboardDTO';
 import { IDashboard } from '../entities/Dashboard';
 
 class DashboardService {
@@ -9,7 +9,7 @@ class DashboardService {
     this.repository = repository;
   }
 
-  async create(data: DashboardDTO): Promise<IDashboard> {
+  async create(data: CreateDashboardDTO): Promise<IDashboard> {
     return await this.repository.create(data);
   }
 
@@ -21,7 +21,7 @@ class DashboardService {
     return await this.repository.findById(id);
   }
 
-  async update(id, data): Promise<IDashboard> {
+  async update(id, data: UpdateDashboardDTO): Promise<IDashboard> {
     return await this.repository.update(id, data)
   }
 

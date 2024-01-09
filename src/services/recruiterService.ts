@@ -1,5 +1,5 @@
 import RecruiterRepository from '../repositories/recruiterRepository';
-import RecruiterDTO from './recruiterDTO';
+import { UpdateRecruiterDTO, CreateRecruiterDTO } from '../dto/recruiterDTO';
 import { IRecruiter } from '../entities/Recruiter';
 
 class RecruiterService {
@@ -9,7 +9,7 @@ class RecruiterService {
     this.repository = repository;
   }
 
-  async create(data: RecruiterDTO): Promise<IRecruiter> {
+  async create(data: CreateRecruiterDTO): Promise<IRecruiter> {
     return await this.repository.create(data);
   }
 
@@ -21,7 +21,7 @@ class RecruiterService {
     return await this.repository.findById(id);
   }
 
-  async update(id, data): Promise<IRecruiter> {
+  async update(id, data: UpdateRecruiterDTO): Promise<IRecruiter> {
     return await this.repository.update(id, data)
   }
 

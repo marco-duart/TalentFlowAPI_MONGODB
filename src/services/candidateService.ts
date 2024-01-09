@@ -1,5 +1,5 @@
 import CandidateRepository from '../repositories/candidateRepository';
-import CandidateDTO from './candidateDTO';
+import { UpdateCandidateDTO, CreateCandidateDTO } from '../dto/candidateDTO';
 import { ICandidate } from '../entities/Candidate';
 import { IApplicationDocuments } from '../entities/ApplicationDocuments';
 
@@ -10,7 +10,7 @@ class CandidateService {
     this.repository = repository;
   }
 
-  async create(data: CandidateDTO): Promise<ICandidate> {
+  async create(data: CreateCandidateDTO): Promise<ICandidate> {
     return await this.repository.create(data);
   }
 
@@ -22,7 +22,7 @@ class CandidateService {
     return await this.repository.findById(id);
   }
 
-  async update(id, data): Promise<ICandidate> {
+  async update(id, data: UpdateCandidateDTO): Promise<ICandidate> {
     return await this.repository.update(id, data)
   }
 

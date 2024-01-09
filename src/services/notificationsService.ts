@@ -1,5 +1,5 @@
 import NotificationsRepository from '../repositories/notificationsRepository';
-import NotificationsDTO from './notificationsDTO';
+import { UpdateNotificationsDTO, CreateNotificationsDTO } from '../dto/notificationsDTO';
 import { INotifications } from '../entities/Notifications';
 
 class NotificationsService {
@@ -9,7 +9,7 @@ class NotificationsService {
     this.repository = repository;
   }
 
-  async create(data: NotificationsDTO): Promise<INotifications> {
+  async create(data: CreateNotificationsDTO): Promise<INotifications> {
     return await this.repository.create(data);
   }
 
@@ -21,7 +21,7 @@ class NotificationsService {
     return await this.repository.findById(id);
   }
 
-  async update(id, data): Promise<INotifications> {
+  async update(id, data: UpdateNotificationsDTO): Promise<INotifications> {
     return await this.repository.update(id, data)
   }
 

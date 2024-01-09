@@ -1,5 +1,5 @@
 import FeedbackRepository from '../repositories/feedbackRepository';
-import FeedbackDTO from './feedbackDTO';
+import { UpdateFeedbackDTO, CreateFeedbackDTO } from '../dto/feedbackDTO';
 import { IFeedback } from '../entities/Feedback';
 
 class FeedbackService {
@@ -9,7 +9,7 @@ class FeedbackService {
     this.repository = repository;
   }
 
-  async create(data: FeedbackDTO): Promise<IFeedback> {
+  async create(data: CreateFeedbackDTO): Promise<IFeedback> {
     return await this.repository.create(data);
   }
 
@@ -21,7 +21,7 @@ class FeedbackService {
     return await this.repository.findById(id);
   }
 
-  async update(id, data): Promise<IFeedback> {
+  async update(id, data: UpdateFeedbackDTO): Promise<IFeedback> {
     return await this.repository.update(id, data)
   }
 

@@ -1,5 +1,5 @@
 import JobPostingRepository from '../repositories/jobPostingRepository';
-import JobPostingDTO from './jobPostingDTO';
+import { UpdateJobPostingDTO, CreateJobPostingDTO } from '../dto/jobPostingDTO';
 import { IJobPosting } from '../entities/JobPosting';
 
 class JobPostingService {
@@ -9,7 +9,7 @@ class JobPostingService {
     this.repository = repository;
   }
 
-  async create(data: JobPostingDTO): Promise<IJobPosting> {
+  async create(data: CreateJobPostingDTO): Promise<IJobPosting> {
     return await this.repository.create(data);
   }
 
@@ -21,7 +21,7 @@ class JobPostingService {
     return await this.repository.findById(id);
   }
 
-  async update(id, data): Promise<IJobPosting> {
+  async update(id, data: UpdateJobPostingDTO): Promise<IJobPosting> {
     return await this.repository.update(id, data)
   }
 

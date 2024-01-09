@@ -1,5 +1,5 @@
 import ApplicationStatusRepository from '../repositories/applicationStatusRepository';
-import ApplicationStatusDTO from './applicationStatusDTO';
+import { UpdateApplicationStatusDTO, CreateApplicationStatusDTO } from '../dto/applicationStatusDTO';
 import { IApplicationStatus } from '../entities/ApplicationStatus';
 
 class ApplicationStatusService {
@@ -9,7 +9,7 @@ class ApplicationStatusService {
     this.repository = repository;
   }
 
-  async create(data: ApplicationStatusDTO): Promise<IApplicationStatus> {
+  async create(data: CreateApplicationStatusDTO): Promise<IApplicationStatus> {
     return await this.repository.create(data);
   }
 
@@ -21,7 +21,7 @@ class ApplicationStatusService {
     return await this.repository.findById(id);
   }
 
-  async update(id, data: ApplicationStatusDTO): Promise<IApplicationStatus> {
+  async update(id, data: UpdateApplicationStatusDTO): Promise<IApplicationStatus> {
     return await this.repository.update(id, data)
   }
 

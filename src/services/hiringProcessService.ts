@@ -1,5 +1,5 @@
 import HiringProcessRepository from '../repositories/hiringProcessRepository';
-import HiringProcessDTO from './hiringProcessDTO';
+import { UpdateHiringProcessDTO, CreateHiringProcessDTO } from '../dto/hiringProcessDTO';
 import { IHiringProcess } from '../entities/HiringProcess';
 
 class HiringProcessService {
@@ -9,7 +9,7 @@ class HiringProcessService {
     this.repository = repository;
   }
 
-  async create(data: HiringProcessDTO): Promise<IHiringProcess> {
+  async create(data: CreateHiringProcessDTO): Promise<IHiringProcess> {
     return await this.repository.create(data);
   }
 
@@ -21,7 +21,7 @@ class HiringProcessService {
     return await this.repository.findById(id);
   }
 
-  async update(id, data): Promise<IHiringProcess> {
+  async update(id, data: UpdateHiringProcessDTO): Promise<IHiringProcess> {
     return await this.repository.update(id, data)
   }
 

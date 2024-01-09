@@ -1,5 +1,5 @@
 import EmploymentHistoryRepository from '../repositories/employmentHistoryRepository';
-import EmploymentDTO from './employmentDTO';
+import { UpdateEmploymentHistoryDTO, CreateEmploymentHistoryDTO } from '../dto/employmentHistoryDTO';
 import { IEmploymentHistory } from '../entities/EmploymentHistory';
 
 class EmploymentHistoryService {
@@ -9,7 +9,7 @@ class EmploymentHistoryService {
     this.repository = repository;
   }
 
-  async create(data: EmploymentDTO): Promise<IEmploymentHistory> {
+  async create(data: CreateEmploymentHistoryDTO): Promise<IEmploymentHistory> {
     return await this.repository.create(data);
   }
 
@@ -21,7 +21,7 @@ class EmploymentHistoryService {
     return await this.repository.findById(id);
   }
 
-  async update(id, data): Promise<IEmploymentHistory> {
+  async update(id, data: UpdateEmploymentHistoryDTO): Promise<IEmploymentHistory> {
     return await this.repository.update(id, data)
   }
 

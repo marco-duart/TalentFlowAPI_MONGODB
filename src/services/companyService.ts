@@ -1,5 +1,5 @@
 import CompanyRepository from '../repositories/companyRepository';
-import CompanyDTO from './companyDTO';
+import { UpdateCompanyDTO, CreateCompanyDTO } from '../dto/companyDTO';
 import { ICompany } from '../entities/Company';
 
 class CompanyService {
@@ -9,7 +9,7 @@ class CompanyService {
     this.repository = repository;
   }
 
-  async create(data: CompanyDTO): Promise<ICompany> {
+  async create(data: CreateCompanyDTO): Promise<ICompany> {
     return await this.repository.create(data);
   }
 
@@ -21,7 +21,7 @@ class CompanyService {
     return await this.repository.findById(id);
   }
 
-  async update(id, data): Promise<ICompany> {
+  async update(id, data: UpdateCompanyDTO): Promise<ICompany> {
     return await this.repository.update(id, data)
   }
 
