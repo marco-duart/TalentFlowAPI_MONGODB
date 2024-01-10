@@ -1,7 +1,7 @@
 import { CompanySchema, ICompany } from "../entities/Company";
-import CompanyRepository from "../repositories/companyRepository";
-import CompanyService from "../services/companyService";
-import CompanyController from "../controllers/companyController";
+import CompanyRepository from "../repositories/CompanyRepository";
+import CompanyService from "../services/CompanyService";
+import CompanyController from "../controllers/CompanyController";
 import { model } from "mongoose";
 
 export class CompanyModule {

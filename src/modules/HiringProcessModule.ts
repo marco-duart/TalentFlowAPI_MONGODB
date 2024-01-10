@@ -1,7 +1,7 @@
 import { HiringProcessSchema, IHiringProcess } from "../entities/HiringProcess";
-import HiringProcessRepository from "../repositories/hiringProcessRepository";
-import HiringProcessService from "../services/hiringProcessService";
-import HiringProcessController from "../controllers/hiringProcessController";
+import HiringProcessRepository from "../repositories/HiringProcessRepository";
+import HiringProcessService from "../services/HiringProcessService";
+import HiringProcessController from "../controllers/HiringProcessController";
 import { model } from "mongoose";
 
 export class HiringProcessModule {

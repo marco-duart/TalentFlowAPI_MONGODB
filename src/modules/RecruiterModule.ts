@@ -1,7 +1,7 @@
 import { RecruiterSchema, IRecruiter } from "../entities/Recruiter";
-import RecruiterRepository from "../repositories/recruiterRepository";
-import RecruiterService from "../services/recruiterService";
-import RecruiterController from "../controllers/recruiterController";
+import RecruiterRepository from "../repositories/RecruiterRepository";
+import RecruiterService from "../services/RecruiterService";
+import RecruiterController from "../controllers/RecruiterController";
 import { model } from "mongoose";
 
 export class RecruiterModule {

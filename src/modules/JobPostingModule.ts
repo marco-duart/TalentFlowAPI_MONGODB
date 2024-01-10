@@ -1,7 +1,7 @@
 import { JobPostingSchema, IJobPosting } from "../entities/JobPosting";
-import JobPostingRepository from "../repositories/jobPostingRepository";
-import JobPostingService from "../services/jobPostingService";
-import JobPostingController from "../controllers/jobPostingController";
+import JobPostingRepository from "../repositories/JobPostingRepository";
+import JobPostingService from "../services/JobPostingService";
+import JobPostingController from "../controllers/JobPostingController";
 import { model } from "mongoose";
 
 export class JobPostingModule {

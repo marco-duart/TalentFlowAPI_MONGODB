@@ -1,7 +1,7 @@
 import { FeedbackSchema, IFeedback } from "../entities/Feedback";
-import FeedbackRepository from "../repositories/feedbackRepository";
-import FeedbackService from "../services/feedbackService";
-import FeedbackController from "../controllers/feedbackController";
+import FeedbackRepository from "../repositories/FeedbackRepository";
+import FeedbackService from "../services/FeedbackService";
+import FeedbackController from "../controllers/FeedbackController";
 import { model } from "mongoose";
 
 export class FeedbackModule {

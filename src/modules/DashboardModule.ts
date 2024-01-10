@@ -1,7 +1,7 @@
 import { DashboardSchema, IDashboard } from "../entities/Dashboard";
-import DashboardRepository from "../repositories/dashboardRepository";
-import DashboardService from "../services/dashboardService";
-import DashboardController from "../controllers/dashboardController";
+import DashboardRepository from "../repositories/DashboardRepository";
+import DashboardService from "../services/DashboardService";
+import DashboardController from "../controllers/DashboardController";
 import { model } from "mongoose";
 
 export class DashboardModule {

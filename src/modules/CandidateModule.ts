@@ -1,7 +1,7 @@
 import { CandidateSchema, ICandidate } from "../entities/Candidate";
-import CandidateRepository from "../repositories/candidateRepository";
-import CandidateService from "../services/candidateService";
-import CandidateController from "../controllers/candidateController";
+import CandidateRepository from "../repositories/CandidateRepository";
+import CandidateService from "../services/CandidateService";
+import CandidateController from "../controllers/CandidateController";
 import { model } from "mongoose";
 
 export class CandidateModule {

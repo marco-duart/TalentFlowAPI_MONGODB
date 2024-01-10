@@ -1,7 +1,7 @@
 import { InterviewSchema, IInterview } from "../entities/Interview";
-import InterviewRepository from "../repositories/interviewRepository";
-import InterviewService from "../services/interviewService";
-import InterviewController from "../controllers/interviewController";
+import InterviewRepository from "../repositories/InterviewRepository";
+import InterviewService from "../services/InterviewService";
+import InterviewController from "../controllers/InterviewController";
 import { model } from "mongoose";
 
 export class InterviewModule {

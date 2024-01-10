@@ -1,7 +1,7 @@
 import { NotificationsSchema, INotifications } from "../entities/Notifications";
-import NotificationsRepository from "../repositories/notificationsRepository";
-import NotificationsService from "../services/notificationsService";
-import NotificationsController from "../controllers/notificationsController";
+import NotificationsRepository from "../repositories/NotificationsRepository";
+import NotificationsService from "../services/NotificationsService";
+import NotificationsController from "../controllers/NotificationsController";
 import { model } from "mongoose";
 
 export class NotificationsModule {

@@ -1,7 +1,7 @@
 import { EmploymentHistorySchema, IEmploymentHistory } from "../entities/EmploymentHistory";
-import EmploymentHistoryRepository from "../repositories/employmentHistoryRepository";
-import EmploymentHistoryService from "../services/employmentHistoryService";
-import EmploymentHistoryController from "../controllers/employmentHistoryController";
+import EmploymentHistoryRepository from "../repositories/EmploymentHistoryRepository";
+import EmploymentHistoryService from "../services/EmploymentHistoryService";
+import EmploymentHistoryController from "../controllers/EmploymentHistoryController";
 import { model } from "mongoose";
 
 export class EmploymentHistoryModule {
