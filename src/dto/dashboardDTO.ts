@@ -1,4 +1,4 @@
-import { Types } from "mongoose";
+import { Schema } from "mongoose";
 
 export class CreateDashboardDTO {
   overview: string;
@@ -15,14 +15,14 @@ export class CreateDashboardDTO {
 }
 
 export class UpdateDashboardDTO {
-  id: Types.ObjectId;
+  id: Schema.Types.ObjectId;
   overview: string;
   statistics: string;
   permissions: string;
   reporting: string;
 
   constructor(Data: UpdateDashboard) {
-    this.id = new Types.ObjectId(Data.id);
+    this.id = new Schema.Types.ObjectId(Data.id);
     this.overview = Data.overview;
     this.statistics = Data.statistics;
     this.permissions = Data.permissions;

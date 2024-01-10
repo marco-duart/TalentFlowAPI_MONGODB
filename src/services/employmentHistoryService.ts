@@ -1,6 +1,7 @@
 import EmploymentHistoryRepository from '../repositories/employmentHistoryRepository';
 import { UpdateEmploymentHistoryDTO, CreateEmploymentHistoryDTO } from '../dto/employmentHistoryDTO';
 import { IEmploymentHistory } from '../entities/EmploymentHistory';
+import { Schema } from 'mongoose';
 
 class EmploymentHistoryService {
   private repository: EmploymentHistoryRepository;
@@ -17,16 +18,16 @@ class EmploymentHistoryService {
     return await this.repository.findAll()
   }
 
-  async getById(id: string): Promise<IEmploymentHistory> {
-    return await this.repository.findById(id);
+  async getById(id: string): Promise<IEmploymentHistory | null> {
+    return await this.repository.findById(new Schema.Types.ObjectId(id));
   }
 
-  async update(id, data: UpdateEmploymentHistoryDTO): Promise<IEmploymentHistory> {
-    return await this.repository.update(id, data)
+  async update(id: string, data: UpdateEmploymentHistoryDTO): Promise<IEmploymentHistory | null> {
+    return await this.repository.update(new Schema.Types.ObjectId(id), data)
   }
 
-  async softDelete(id): Promise<IEmploymentHistory> {
-    return await this.repository.softDelete(id)
+  async softDelete(id: string): Promise<IEmploymentHistory | null> {
+    return await this.repository.softDelete(new Schema.Types.ObjectId(id))
   }
 
 }

@@ -1,4 +1,4 @@
-import { Types } from "mongoose";
+import { Schema } from "mongoose";
 
 export class CreateCandidateDTO {
   name: string;
@@ -18,11 +18,11 @@ export class CreateCandidateDTO {
     title: string;
     link: string;
   }[];
-  employmentHistory?: Types.ObjectId;
-  applicationStatus?: Types.ObjectId[];
-  interviews?: Types.ObjectId[];
-  feedback?: Types.ObjectId[];
-  applicationDocuments?: Types.ObjectId[];
+  employmentHistory?: Schema.Types.ObjectId;
+  applicationStatus?: Schema.Types.ObjectId[];
+  interviews?: Schema.Types.ObjectId[];
+  feedback?: Schema.Types.ObjectId[];
+  applicationDocuments?: Schema.Types.ObjectId[];
 
   constructor(Data: CreateCandidate) {
     this.name = Data.name;
@@ -33,20 +33,20 @@ export class CreateCandidateDTO {
     this.academicHistory = Data.academicHistory;
     this.skills = Data.skills;
     this.professionalLinks = Data.professionalLinks;
-    this.employmentHistory = new Types.ObjectId();
+    this.employmentHistory = new Schema.Types.ObjectId(Data.employmentHistory);
     this.applicationStatus = Data.applicationStatus.map(
-      (id) => new Types.ObjectId(id)
+      (id) => new Schema.Types.ObjectId(id)
     );
-    this.interviews = Data.interviews.map((id) => new Types.ObjectId(id));
-    this.feedback = Data.feedback.map((id) => new Types.ObjectId(id));
+    this.interviews = Data.interviews.map((id) => new Schema.Types.ObjectId(id));
+    this.feedback = Data.feedback.map((id) => new Schema.Types.ObjectId(id));
     this.applicationDocuments = Data.applicationDocuments.map(
-      (id) => new Types.ObjectId(id)
+      (id) => new Schema.Types.ObjectId(id)
     );
   }
 }
 
 export class UpdateCandidateDTO {
-  id: Types.ObjectId;
+  id: Schema.Types.ObjectId;
   name: string;
   email: string;
   phoneNumber: string;
@@ -64,14 +64,14 @@ export class UpdateCandidateDTO {
     title: string;
     link: string;
   }[];
-  employmentHistory?: Types.ObjectId;
-  applicationStatus?: Types.ObjectId[];
-  interviews?: Types.ObjectId[];
-  feedback?: Types.ObjectId[];
-  applicationDocuments?: Types.ObjectId[];
+  employmentHistory?: Schema.Types.ObjectId;
+  applicationStatus?: Schema.Types.ObjectId[];
+  interviews?: Schema.Types.ObjectId[];
+  feedback?: Schema.Types.ObjectId[];
+  applicationDocuments?: Schema.Types.ObjectId[];
 
   constructor(Data: UpdateCandidate) {
-    this.id = new Types.ObjectId(Data.id);
+    this.id = new Schema.Types.ObjectId(Data.id);
     this.name = Data.name;
     this.email = Data.email;
     this.phoneNumber = Data.phoneNumber;
@@ -80,14 +80,14 @@ export class UpdateCandidateDTO {
     this.academicHistory = Data.academicHistory;
     this.skills = Data.skills;
     this.professionalLinks = Data.professionalLinks;
-    this.employmentHistory = new Types.ObjectId();
+    this.employmentHistory = new Schema.Types.ObjectId(Data.employmentHistory);
     this.applicationStatus = Data.applicationStatus.map(
-      (id) => new Types.ObjectId(id)
+      (id) => new Schema.Types.ObjectId(id)
     );
-    this.interviews = Data.interviews.map((id) => new Types.ObjectId(id));
-    this.feedback = Data.feedback.map((id) => new Types.ObjectId(id));
+    this.interviews = Data.interviews.map((id) => new Schema.Types.ObjectId(id));
+    this.feedback = Data.feedback.map((id) => new Schema.Types.ObjectId(id));
     this.applicationDocuments = Data.applicationDocuments.map(
-      (id) => new Types.ObjectId(id)
+      (id) => new Schema.Types.ObjectId(id)
     );
   }
 }

@@ -1,32 +1,32 @@
-import { Types } from "mongoose";
+import { Schema } from "mongoose";
 
 export class CreateApplicationDocumentsDTO {
   resume: string;
   coverLetter: string;
   relevantDocuments: string[];
-  candidate: Types.ObjectId;
+  candidate: Schema.Types.ObjectId;
 
   constructor(Data: CreateApplicationDocuments) {
     this.resume = Data.resume;
     this.coverLetter = Data.coverLetter;
     this.relevantDocuments = Data.relevantDocuments;
-    this.candidate = new Types.ObjectId(Data.candidate);
+    this.candidate = new Schema.Types.ObjectId(Data.candidate);
   }
 }
 
 export class UpdateApplicationDocumentsDTO {
-  id: Types.ObjectId;
+  id: Schema.Types.ObjectId;
   resume?: string;
   coverLetter?: string;
   relevantDocuments?: string[];
-  candidate?: Types.ObjectId;
+  candidate?: Schema.Types.ObjectId;
 
   constructor(Data: UpdateApplicationDocuments) {
-    this.id = new Types.ObjectId(Data.id);
+    this.id = new Schema.Types.ObjectId(Data.id);
     this.resume = Data.resume;
     this.coverLetter = Data.coverLetter;
     this.relevantDocuments = Data.relevantDocuments;
-    this.candidate = new Types.ObjectId(Data.candidate);
+    this.candidate = new Schema.Types.ObjectId(Data.candidate);
   }
 }
 

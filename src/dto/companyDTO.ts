@@ -1,4 +1,4 @@
-import { Types } from "mongoose";
+import { Schema } from "mongoose";
 
 export class CreateCompanyDTO {
     companyName: string;
@@ -13,7 +13,7 @@ export class CreateCompanyDTO {
         link: string;
       }[];
     };
-    jobPostings: Types.ObjectId;
+    jobPostings: Schema.Types.ObjectId;
 
   constructor(Data: CreateCompany) {
     this.companyName = Data.companyName;
@@ -21,12 +21,12 @@ export class CreateCompanyDTO {
     this.companySize = Data.companySize
     this.companyLocation = Data.companyLocation
     this.contactInformation = Data.contactInformation
-    this.jobPostings = new Types.ObjectId(Data.jobPostings);
+    this.jobPostings = new Schema.Types.ObjectId(Data.jobPostings);
   }
 }
 
 export class UpdateCompanyDTO {
-  id: Types.ObjectId;
+  id: Schema.Types.ObjectId;
   companyName: string;
   sector: string;
   companySize: number;
@@ -39,16 +39,16 @@ export class UpdateCompanyDTO {
       link: string;
     }[];
   };
-  jobPostings: Types.ObjectId;
+  jobPostings: Schema.Types.ObjectId;
 
   constructor(Data: UpdateCompany) {
-    this.id = new Types.ObjectId(Data.id);
+    this.id = new Schema.Types.ObjectId(Data.id);
     this.companyName = Data.companyName;
     this.sector = Data.sector;
     this.companySize = Data.companySize
     this.companyLocation = Data.companyLocation
     this.contactInformation = Data.contactInformation
-    this.jobPostings = new Types.ObjectId(Data.jobPostings);
+    this.jobPostings = new Schema.Types.ObjectId(Data.jobPostings);
   }
 }
 

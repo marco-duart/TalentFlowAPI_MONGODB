@@ -2,6 +2,7 @@ import CandidateRepository from '../repositories/candidateRepository';
 import { UpdateCandidateDTO, CreateCandidateDTO } from '../dto/candidateDTO';
 import { ICandidate } from '../entities/Candidate';
 import { IApplicationDocuments } from '../entities/ApplicationDocuments';
+import { Schema } from 'mongoose';
 
 class CandidateService {
   private repository: CandidateRepository;
@@ -18,16 +19,16 @@ class CandidateService {
     return await this.repository.findAll()
   }
 
-  async getById(id: string): Promise<ICandidate> {
-    return await this.repository.findById(id);
+  async getById(id: string): Promise<ICandidate | null> {
+    return await this.repository.findById(new Schema.Types.ObjectId(id));
   }
 
-  async update(id, data: UpdateCandidateDTO): Promise<ICandidate> {
-    return await this.repository.update(id, data)
+  async update(id: string, data: UpdateCandidateDTO): Promise<ICandidate | null> {
+    return await this.repository.update(new Schema.Types.ObjectId(id), data)
   }
 
-  async softDelete(id): Promise<IApplicationDocuments> {
-    return await this.repository.softDelete(id)
+  async softDelete(id: string): Promise<ICandidate | null> {
+    return await this.repository.softDelete(new Schema.Types.ObjectId(id))
   }
 
 }

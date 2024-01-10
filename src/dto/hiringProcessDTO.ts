@@ -1,4 +1,4 @@
-import { Types } from "mongoose";
+import { Schema } from "mongoose";
 
 export class CreateHiringProcessDTO {
   startDate: Date;
@@ -6,9 +6,9 @@ export class CreateHiringProcessDTO {
   stage: string;
   recruiter: string;
   status: string;
-  interviews: Types.ObjectId[];
-  applicationStatus: Types.ObjectId[];
-  recruiters: Types.ObjectId[];
+  interviews: Schema.Types.ObjectId[];
+  applicationStatus: Schema.Types.ObjectId[];
+  recruiters: Schema.Types.ObjectId[];
 
   constructor(Data: CreateHiringProcess) {
     this.startDate = Data.startDate;
@@ -16,33 +16,33 @@ export class CreateHiringProcessDTO {
     this.stage = Data.stage;
     this.recruiter = Data.recruiter;
     this.status = Data.status;
-    this.interviews = Data.interviews.map((id) => new Types.ObjectId(id));
-    this.applicationStatus = Data.applicationStatus.map((id) => new Types.ObjectId(id));
-    this.recruiters = Data.recruiters.map((id) => new Types.ObjectId(id));
+    this.interviews = Data.interviews.map((id) => new Schema.Types.ObjectId(id));
+    this.applicationStatus = Data.applicationStatus.map((id) => new Schema.Types.ObjectId(id));
+    this.recruiters = Data.recruiters.map((id) => new Schema.Types.ObjectId(id));
   }
 }
 
 export class UpdateHiringProcessDTO {
-  id: Types.ObjectId;
+  id: Schema.Types.ObjectId;
   startDate: Date;
   endDate: Date;
   stage: string;
   recruiter: string;
   status: string;
-  interviews: Types.ObjectId[];
-  applicationStatus: Types.ObjectId[];
-  recruiters: Types.ObjectId[];
+  interviews: Schema.Types.ObjectId[];
+  applicationStatus: Schema.Types.ObjectId[];
+  recruiters: Schema.Types.ObjectId[];
 
   constructor(Data: UpdateHiringProcess) {
-    this.id = new Types.ObjectId(Data.id);
+    this.id = new Schema.Types.ObjectId(Data.id);
     this.startDate = Data.startDate;
     this.endDate = Data.endDate;
     this.stage = Data.stage;
     this.recruiter = Data.recruiter;
     this.status = Data.status;
-    this.interviews = Data.interviews.map((id) => new Types.ObjectId(id));
-    this.applicationStatus = Data.applicationStatus.map((id) => new Types.ObjectId(id));
-    this.recruiters = Data.recruiters.map((id) => new Types.ObjectId(id));
+    this.interviews = Data.interviews.map((id) => new Schema.Types.ObjectId(id));
+    this.applicationStatus = Data.applicationStatus.map((id) => new Schema.Types.ObjectId(id));
+    this.recruiters = Data.recruiters.map((id) => new Schema.Types.ObjectId(id));
   }
 }
 

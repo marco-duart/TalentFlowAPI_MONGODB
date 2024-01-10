@@ -18,16 +18,16 @@ class ApplicationDocumentsService {
     return await this.repository.findAll();
   }
 
-  async getById(id: string): Promise<IApplicationDocuments> {
-    return await this.repository.findById(id);
+  async getById(id: string): Promise<IApplicationDocuments | null> {
+    return await this.repository.findById(new Schema.Types.ObjectId(id));
   }
 
-  async update(id: string, data: UpdateApplicationDocumentsDTO): Promise<IApplicationDocuments> {
-    return await this.repository.update(id, data)
+  async update(id: string, data: UpdateApplicationDocumentsDTO): Promise<IApplicationDocuments | null> {
+    return await this.repository.update(new Schema.Types.ObjectId(id), data)
   }
 
-  async softDelete(id: string): Promise<IApplicationDocuments> {
-    return await this.repository.softDelete(id)
+  async softDelete(id: string): Promise<IApplicationDocuments | null> {
+    return await this.repository.softDelete(new Schema.Types.ObjectId(id))
   }
 
 }

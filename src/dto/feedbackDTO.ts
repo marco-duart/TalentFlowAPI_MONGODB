@@ -1,4 +1,4 @@
-import { Types } from "mongoose";
+import { Schema } from "mongoose";
 
 export class CreateFeedbackDTO {
   feedbackDate: Date;
@@ -15,14 +15,14 @@ export class CreateFeedbackDTO {
 }
 
 export class UpdateFeedbackDTO {
-  id: Types.ObjectId;
+  id: Schema.Types.ObjectId;
   feedbackDate: Date;
   overallAssessment: string;
   specificComments: string;
   recommendation: string;
 
   constructor(Data: UpdateFeedback) {
-    this.id = new Types.ObjectId(Data.id);
+    this.id = new Schema.Types.ObjectId(Data.id);
     this.feedbackDate = Data.feedbackDate;
     this.overallAssessment = Data.overallAssessment;
     this.specificComments = Data.specificComments;

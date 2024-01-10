@@ -1,6 +1,7 @@
 import InterviewRepository from '../repositories/interviewRepository';
 import { UpdateInterviewDTO, CreateInterviewDTO } from '../dto/interviewDTO';
 import { IInterview } from '../entities/Interview';
+import { Schema } from 'mongoose';
 
 class InterviewService {
   private repository: InterviewRepository;
@@ -17,16 +18,16 @@ class InterviewService {
     return await this.repository.findAll()
   }
 
-  async getById(id: string): Promise<IInterview> {
-    return await this.repository.findById(id);
+  async getById(id: string): Promise<IInterview | null> {
+    return await this.repository.findById(new Schema.Types.ObjectId(id));
   }
 
-  async update(id, data: UpdateInterviewDTO): Promise<IInterview> {
-    return await this.repository.update(id, data)
+  async update(id: string, data: UpdateInterviewDTO): Promise<IInterview | null> {
+    return await this.repository.update(new Schema.Types.ObjectId(id), data)
   }
 
-  async softDelete(id): Promise<IInterview> {
-    return await this.repository.softDelete(id)
+  async softDelete(id: string): Promise<IInterview | null> {
+    return await this.repository.softDelete(new Schema.Types.ObjectId(id))
   }
 
 }

@@ -28,7 +28,11 @@ namespace ApplicationDocumentsRoutes {
 namespace ApplicationStatusRoutes {
   const { controller } = ApplicationStatusModule.make()
 
-  router.post("/")
+  router.post("/applicationStatus", controller.create.bind(controller));
+  router.get("/applicationStatus/:id", controller.getById.bind(controller));
+  router.get("/applicationStatus", controller.getAll.bind(controller));
+  router.patch("/applicationStatus/:id", controller.update.bind(controller))
+  router.delete("applicationStatus/:id", controller.delete.bind(controller))
 }
 
 namespace CandidateRoutes {

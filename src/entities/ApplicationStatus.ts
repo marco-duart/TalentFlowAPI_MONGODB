@@ -1,10 +1,10 @@
-import { Schema, Types, model, Document } from "mongoose";
+import { Schema, model, Document } from "mongoose";
 
 export interface IApplicationStatus extends Document {
   status: string; //(pending, under review, approved, rejected)
   additionalComments: string;
-  candidate: Types.ObjectId;
-  hiringProcess: Types.ObjectId;
+  candidate: Schema.Types.ObjectId;
+  hiringProcess: Schema.Types.ObjectId;
   deletedAt: Date;
 }
 

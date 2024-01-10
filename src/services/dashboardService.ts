@@ -1,6 +1,7 @@
 import DashboardRepository from '../repositories/dashboardRepository';
 import { UpdateDashboardDTO, CreateDashboardDTO } from '../dto/dashboardDTO';
 import { IDashboard } from '../entities/Dashboard';
+import { Schema } from 'mongoose';
 
 class DashboardService {
   private repository: DashboardRepository;
@@ -13,20 +14,20 @@ class DashboardService {
     return await this.repository.create(data);
   }
 
-  async getAll(): Promise<IDashboard> {
+  async getAll(): Promise<IDashboard[]> {
     return this.repository.findAll()
   }
 
   async getById(id: string): Promise<IDashboard | null> {
-    return await this.repository.findById(id);
+    return await this.repository.findById(new Schema.Types.ObjectId(id));
   }
 
-  async update(id, data: UpdateDashboardDTO): Promise<IDashboard> {
-    return await this.repository.update(id, data)
+  async update(id: string, data: UpdateDashboardDTO): Promise<IDashboard | null> {
+    return await this.repository.update(new Schema.Types.ObjectId(id), data)
   }
 
-  async softDelete(id): Promise<IDashboard> {
-    return await this.repository.softDelete(id)
+  async softDelete(id: string): Promise<IDashboard | null> {
+    return await this.repository.softDelete(new Schema.Types.ObjectId(id))
   }
 
 }

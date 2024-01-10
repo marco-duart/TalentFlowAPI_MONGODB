@@ -1,6 +1,7 @@
 import CompanyRepository from '../repositories/companyRepository';
 import { UpdateCompanyDTO, CreateCompanyDTO } from '../dto/companyDTO';
 import { ICompany } from '../entities/Company';
+import { Schema } from 'mongoose';
 
 class CompanyService {
   private repository: CompanyRepository;
@@ -17,16 +18,16 @@ class CompanyService {
     return await this.repository.findAll()
   }
 
-  async getById(id: string): Promise<ICompany> {
-    return await this.repository.findById(id);
+  async getById(id: string): Promise<ICompany | null> {
+    return await this.repository.findById(new Schema.Types.ObjectId(id));
   }
 
-  async update(id, data: UpdateCompanyDTO): Promise<ICompany> {
-    return await this.repository.update(id, data)
+  async update(id: string, data: UpdateCompanyDTO): Promise<ICompany | null> {
+    return await this.repository.update(new Schema.Types.ObjectId(id), data)
   }
 
-  async softDelete(id): Promise<ICompany> {
-    return await this.repository.softDelete(id)
+  async softDelete(id: string): Promise<ICompany | null> {
+    return await this.repository.softDelete(new Schema.Types.ObjectId(id))
   }
 
 }

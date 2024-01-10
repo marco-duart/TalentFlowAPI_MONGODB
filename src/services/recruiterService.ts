@@ -1,6 +1,7 @@
 import RecruiterRepository from '../repositories/recruiterRepository';
 import { UpdateRecruiterDTO, CreateRecruiterDTO } from '../dto/recruiterDTO';
 import { IRecruiter } from '../entities/Recruiter';
+import { Schema } from 'mongoose';
 
 class RecruiterService {
   private repository: RecruiterRepository;
@@ -13,20 +14,20 @@ class RecruiterService {
     return await this.repository.create(data);
   }
 
-  async getAll(): Promise<IRecruiter> {
+  async getAll(): Promise<IRecruiter[]> {
     return await this.repository.findAll()
   }
 
-  async getById(id: string): Promise<IRecruiter> {
-    return await this.repository.findById(id);
+  async getById(id: string): Promise<IRecruiter | null> {
+    return await this.repository.findById(new Schema.Types.ObjectId(id));
   }
 
-  async update(id, data: UpdateRecruiterDTO): Promise<IRecruiter> {
-    return await this.repository.update(id, data)
+  async update(id: string, data: UpdateRecruiterDTO): Promise<IRecruiter | null> {
+    return await this.repository.update(new Schema.Types.ObjectId(id), data)
   }
 
-  async softDelete(id): Promise<IRecruiter> {
-    return await this.repository.softDelete(id)
+  async softDelete(id: string): Promise<IRecruiter | null> {
+    return await this.repository.softDelete(new Schema.Types.ObjectId(id))
   }
 
 }

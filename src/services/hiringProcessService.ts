@@ -1,6 +1,7 @@
 import HiringProcessRepository from '../repositories/hiringProcessRepository';
 import { UpdateHiringProcessDTO, CreateHiringProcessDTO } from '../dto/hiringProcessDTO';
 import { IHiringProcess } from '../entities/HiringProcess';
+import { Schema } from 'mongoose';
 
 class HiringProcessService {
   private repository: HiringProcessRepository;
@@ -17,16 +18,16 @@ class HiringProcessService {
     return await this.repository.findAll()
   }
 
-  async getById(id: string): Promise<IHiringProcess> {
-    return await this.repository.findById(id);
+  async getById(id: string): Promise<IHiringProcess | null> {
+    return await this.repository.findById(new Schema.Types.ObjectId(id));
   }
 
-  async update(id, data: UpdateHiringProcessDTO): Promise<IHiringProcess> {
-    return await this.repository.update(id, data)
+  async update(id: string, data: UpdateHiringProcessDTO): Promise<IHiringProcess | null> {
+    return await this.repository.update(new Schema.Types.ObjectId(id), data)
   }
 
-  async softDelete(id): Promise<IHiringProcess> {
-    return await this.repository.softDelete(id)
+  async softDelete(id: string): Promise<IHiringProcess | null> {
+    return await this.repository.softDelete(new Schema.Types.ObjectId(id))
   }
 
 }

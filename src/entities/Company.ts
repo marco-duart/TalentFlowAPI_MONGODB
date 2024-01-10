@@ -1,4 +1,4 @@
-import { Schema, Types, model, Document } from "mongoose";
+import { Schema, model, Document } from "mongoose";
 
 export interface ICompany extends Document {
   companyName: string;
@@ -13,7 +13,7 @@ export interface ICompany extends Document {
       link: string;
     }[];
   };
-  jobPostings: Types.ObjectId;
+  jobPostings: Schema.Types.ObjectId;
   deletedAt: Date;
 }
 

@@ -1,4 +1,4 @@
-import { Types } from "mongoose";
+import { Schema } from "mongoose";
 
 export class CreateEmploymentHistoryDTO {
   companyName: string;
@@ -17,7 +17,7 @@ export class CreateEmploymentHistoryDTO {
 }
 
 export class UpdateEmploymentHistoryDTO {
-  id: Types.ObjectId;
+  id: Schema.Types.ObjectId;
   companyName: string;
   position: string;
   startDate: Date;
@@ -25,7 +25,7 @@ export class UpdateEmploymentHistoryDTO {
   achievements: string;
 
   constructor(Data: UpdateEmploymentHistory) {
-    this.id = new Types.ObjectId(Data.id);
+    this.id = new Schema.Types.ObjectId(Data.id);
     this.companyName = Data.companyName;
     this.position = Data.position;
     this.startDate = Data.startDate;

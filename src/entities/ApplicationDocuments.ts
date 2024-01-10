@@ -1,10 +1,10 @@
-import { Schema, Types, model, Document } from "mongoose";
+import { Schema, model, Document } from "mongoose";
 
 export interface IApplicationDocuments extends Document {
   resume: string; 
   coverLetter: string; 
   relevantDocuments: string[];
-  candidate: Types.ObjectId;
+  candidate: Schema.Types.ObjectId;
   deletedAt: Date;
 }
 

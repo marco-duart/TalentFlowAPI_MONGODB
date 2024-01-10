@@ -1,6 +1,7 @@
 import NotificationsRepository from '../repositories/notificationsRepository';
 import { UpdateNotificationsDTO, CreateNotificationsDTO } from '../dto/notificationsDTO';
 import { INotifications } from '../entities/Notifications';
+import { Schema } from 'mongoose';
 
 class NotificationsService {
   private repository: NotificationsRepository;
@@ -17,16 +18,16 @@ class NotificationsService {
     return await this.repository.findAll()
   }
 
-  async getById(id: string): Promise<INotifications> {
-    return await this.repository.findById(id);
+  async getById(id: string): Promise<INotifications | null> {
+    return await this.repository.findById(new Schema.Types.ObjectId(id));
   }
 
-  async update(id, data: UpdateNotificationsDTO): Promise<INotifications> {
-    return await this.repository.update(id, data)
+  async update(id: string, data: UpdateNotificationsDTO): Promise<INotifications | null> {
+    return await this.repository.update(new Schema.Types.ObjectId(id), data)
   }
 
-  async softDelete(id): Promise<INotifications> {
-    return await this.repository.softDelete(id)
+  async softDelete(id: string): Promise<INotifications | null> {
+    return await this.repository.softDelete(new Schema.Types.ObjectId(id))
   }
 
 }

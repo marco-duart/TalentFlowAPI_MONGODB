@@ -1,4 +1,4 @@
-import { Types } from "mongoose";
+import { Schema } from "mongoose";
 
 export class CreateInterviewDTO {
   dateTime: Date;
@@ -10,9 +10,9 @@ export class CreateInterviewDTO {
   questions: string[];
   answers: string[];
   interviewFeedback: string;
-  candidate: Types.ObjectId;
-  hiringProcess: Types.ObjectId;
-  recruiter: Types.ObjectId;
+  candidate: Schema.Types.ObjectId;
+  hiringProcess: Schema.Types.ObjectId;
+  recruiter: Schema.Types.ObjectId;
 
   constructor(Data: CreateInterview) {
     this.dateTime = Data.dateTime;
@@ -21,14 +21,14 @@ export class CreateInterviewDTO {
     this.questions = Data.questions;
     this.answers = Data.answers;
     this.interviewFeedback = Data.interviewFeedback;
-    this.candidate = new Types.ObjectId(Data.candidate);
-    this.hiringProcess = new Types.ObjectId(Data.hiringProcess);
-    this.recruiter = new Types.ObjectId(Data.recruiter);
+    this.candidate = new Schema.Types.ObjectId(Data.candidate);
+    this.hiringProcess = new Schema.Types.ObjectId(Data.hiringProcess);
+    this.recruiter = new Schema.Types.ObjectId(Data.recruiter);
   }
 }
 
 export class UpdateInterviewDTO {
-  id: Types.ObjectId;
+  id: Schema.Types.ObjectId;
   dateTime: Date;
   interviewType: string;
   interviewer: {
@@ -38,21 +38,21 @@ export class UpdateInterviewDTO {
   questions: string[];
   answers: string[];
   interviewFeedback: string;
-  candidate: Types.ObjectId;
-  hiringProcess: Types.ObjectId;
-  recruiter: Types.ObjectId;
+  candidate: Schema.Types.ObjectId;
+  hiringProcess: Schema.Types.ObjectId;
+  recruiter: Schema.Types.ObjectId;
 
   constructor(Data: UpdateInterview) {
-    this.id = new Types.ObjectId(Data.id);
+    this.id = new Schema.Types.ObjectId(Data.id);
     this.dateTime = Data.dateTime;
     this.interviewType = Data.interviewType;
     this.interviewer = Data.interviewer;
     this.questions = Data.questions;
     this.answers = Data.answers;
     this.interviewFeedback = Data.interviewFeedback;
-    this.candidate = new Types.ObjectId(Data.candidate);
-    this.hiringProcess = new Types.ObjectId(Data.hiringProcess);
-    this.recruiter = new Types.ObjectId(Data.recruiter);
+    this.candidate = new Schema.Types.ObjectId(Data.candidate);
+    this.hiringProcess = new Schema.Types.ObjectId(Data.hiringProcess);
+    this.recruiter = new Schema.Types.ObjectId(Data.recruiter);
   }
 }
 

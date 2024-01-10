@@ -1,4 +1,4 @@
-import { Types } from "mongoose";
+import { Schema } from "mongoose";
 
 export class CreateNotificationsDTO {
   notificationType: string;
@@ -15,14 +15,14 @@ export class CreateNotificationsDTO {
 }
 
 export class UpdateNotificationsDTO {
-  id: Types.ObjectId;
+  id: Schema.Types.ObjectId;
   notificationType: string;
   recipient: string;
   message: string;
   dateTime: Date;
 
   constructor(Data: UpdateNotifications) {
-    this.id = new Types.ObjectId(Data.id);
+    this.id = new Schema.Types.ObjectId(Data.id);
     this.notificationType = Data.notificationType;
     this.recipient = Data.recipient;
     this.message = Data.message;

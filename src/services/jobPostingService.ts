@@ -1,6 +1,7 @@
 import JobPostingRepository from '../repositories/jobPostingRepository';
 import { UpdateJobPostingDTO, CreateJobPostingDTO } from '../dto/jobPostingDTO';
 import { IJobPosting } from '../entities/JobPosting';
+import { Schema } from 'mongoose';
 
 class JobPostingService {
   private repository: JobPostingRepository;
@@ -17,16 +18,16 @@ class JobPostingService {
     return await this.repository.findAll()
   }
 
-  async getById(id: string): Promise<IJobPosting> {
-    return await this.repository.findById(id);
+  async getById(id: string): Promise<IJobPosting | null> {
+    return await this.repository.findById(new Schema.Types.ObjectId(id));
   }
 
-  async update(id, data: UpdateJobPostingDTO): Promise<IJobPosting> {
-    return await this.repository.update(id, data)
+  async update(id: string, data: UpdateJobPostingDTO): Promise<IJobPosting | null> {
+    return await this.repository.update(new Schema.Types.ObjectId(id), data)
   }
 
-  async softDelete(id): Promise<IJobPosting> {
-    return await this.repository.softDelete(id)
+  async softDelete(id: string): Promise<IJobPosting | null> {
+    return await this.repository.softDelete(new Schema.Types.ObjectId(id))
   }
 
 }

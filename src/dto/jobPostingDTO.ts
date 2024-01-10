@@ -1,4 +1,4 @@
-import { Types } from "mongoose";
+import { Schema } from "mongoose";
 
 export class CreateJobPostingDTO {
   title: string;
@@ -8,7 +8,7 @@ export class CreateJobPostingDTO {
   salary: string;
   startDate: Date;
   endDate: Date;
-  hiringProcess: Types.ObjectId[];
+  hiringProcess: Schema.Types.ObjectId[];
 
   constructor(Data: CreateJobPosting) {
     this.title = Data.title;
@@ -18,12 +18,12 @@ export class CreateJobPostingDTO {
     this.salary = Data.salary;
     this.startDate = Data.startDate;
     this.endDate = Data.endDate;
-    this.hiringProcess = Data.hiringProcess.map((id) => new Types.ObjectId(id))
+    this.hiringProcess = Data.hiringProcess.map((id) => new Schema.Types.ObjectId(id))
   }
 }
 
 export class UpdateJobPostingDTO {
-  id: Types.ObjectId;
+  id: Schema.Types.ObjectId;
   title: string;
   description: string;
   requirements: string[];
@@ -31,10 +31,10 @@ export class UpdateJobPostingDTO {
   salary: string;
   startDate: Date;
   endDate: Date;
-  hiringProcess: Types.ObjectId[];
+  hiringProcess: Schema.Types.ObjectId[];
 
   constructor(Data: UpdateJobPosting) {
-    this.id = new Types.ObjectId(Data.id);
+    this.id = new Schema.Types.ObjectId(Data.id);
     this.title = Data.title;
     this.description = Data.description;
     this.requirements = Data.requirements;
@@ -42,7 +42,7 @@ export class UpdateJobPostingDTO {
     this.salary = Data.salary;
     this.startDate = Data.startDate;
     this.endDate = Data.endDate;
-    this.hiringProcess = Data.hiringProcess.map((id) => new Types.ObjectId(id))
+    this.hiringProcess = Data.hiringProcess.map((id) => new Schema.Types.ObjectId(id))
   }
 }
 
