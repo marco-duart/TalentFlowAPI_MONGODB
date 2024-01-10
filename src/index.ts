@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import { app } from "./server"
 import { MongoConnection } from "./database/connection"
 import { env } from "./configs/env"
