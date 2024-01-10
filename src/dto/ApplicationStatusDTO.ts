@@ -34,7 +34,7 @@ export class UpdateApplicationStatusDTO {
 
 type CreateApplicationStatus = {
   status: string;
-  additionalComments: string;
+  additionalComments?: string;
   candidate: string;
   hiringProcess: string;
 };
@@ -42,7 +42,7 @@ type CreateApplicationStatus = {
 type UpdateApplicationStatus = {
   id: string;
   status: string;
-  additionalComments: string;
+  additionalComments?: string;
   candidate: string;
   hiringProcess: string;
 };

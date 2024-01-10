@@ -1,7 +1,7 @@
 import { Schema } from "mongoose";
 
 export class CreateApplicationDocumentsDTO {
-  resume: string;
+  resume?: string;
   coverLetter: string;
   relevantDocuments: string[];
   candidate: Schema.Types.ObjectId;
@@ -33,7 +33,7 @@ export class UpdateApplicationDocumentsDTO {
 //TYPES
 
 type CreateApplicationDocuments = {
-  resume: string;
+  resume?: string;
   coverLetter: string;
   relevantDocuments: string[];
   candidate: string;
@@ -41,7 +41,7 @@ type CreateApplicationDocuments = {
 
 type UpdateApplicationDocuments = {
   id: string;
-  resume: string;
+  resume?: string;
   coverLetter: string;
   relevantDocuments: string[];
   candidate: string;
