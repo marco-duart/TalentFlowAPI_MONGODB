@@ -14,6 +14,7 @@ class HiringProcessController {
       const createdHiringProcess = await this.service.create(data);
       res.status(201).json(createdHiringProcess);
     } catch (error) {
+      console.log(error);
       res.status(500).send("Internal Server Error");
     }
   }
@@ -29,6 +30,7 @@ class HiringProcessController {
         res.status(404).send("Not found");
       }
     } catch (error) {
+      console.log(error);
       res.status(500).send("Internal Server Error");
     }
   }
@@ -43,6 +45,7 @@ class HiringProcessController {
         res.status(404).send("Not found");
       }
     } catch (error) {
+      console.log(error);
       res.status(500).send("Internal Server Error");
     }
   }
@@ -59,6 +62,7 @@ class HiringProcessController {
         res.status(404).send("Not found");
       }
     } catch (error) {
+      console.log(error);
       res.status(500).send("Internal Server Error");
     }
   }
@@ -74,6 +78,7 @@ class HiringProcessController {
         res.status(404).send("Not found");
       }
     } catch (error) {
+      console.log(error);
       res.status(500).send("Internal Server Error");
     }
   }

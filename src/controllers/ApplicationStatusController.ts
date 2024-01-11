@@ -14,7 +14,7 @@ class ApplicationStatusController {
       const createdApplicationStatus = await this.service.create(data);
       res.status(201).json(createdApplicationStatus);
     } catch (error) {
-      console.error(error);
+      console.log(error);
       res.status(500).send("Internal Server Error");
     }
   }
@@ -30,7 +30,7 @@ class ApplicationStatusController {
         res.status(404).send("Not found");
       }
     } catch (error) {
-      console.error(error);
+      console.log(error);
       res.status(500).send("Internal Server Error");
     }
   }
@@ -45,7 +45,7 @@ class ApplicationStatusController {
         res.status(404).send("Not found");
       }
     } catch (error) {
-      console.error(error);
+      console.log(error);
       res.status(500).send("Internal Server Error");
     }
   }
@@ -61,7 +61,7 @@ class ApplicationStatusController {
         res.status(404).send("Not found");
       }
     } catch (error) {
-      console.error(error);
+      console.log(error);
       res.status(500).send("Internal Server Error");
     }
   }
@@ -77,7 +77,7 @@ class ApplicationStatusController {
         res.status(404).send("Not found");
       }
     } catch (error) {
-      console.error(error);
+      console.log(error);
       res.status(500).send("Internal Server Error");
     }
   }

@@ -11,7 +11,7 @@ class CandidateController {
       const createdCandidate = await this.service.create(data);
       res.status(201).json(createdCandidate);
     } catch (error) {
-      console.error(error);
+      console.log(error);
       res.status(500).send("Internal Server Error");
     }
   }
@@ -27,7 +27,7 @@ class CandidateController {
         res.status(404).send("Not found");
       }
     } catch (error) {
-      console.error(error);
+      console.log(error);
       res.status(500).send("Internal Server Error");
     }
   }
@@ -42,7 +42,7 @@ class CandidateController {
         res.status(500).send("Not found");
       }
     } catch (error) {
-      console.error(error);
+      console.log(error);
       res.status(500).send("Internal Server Error");
     }
   }
@@ -59,12 +59,12 @@ class CandidateController {
         res.status(404).send("Not found");
       }
     } catch (error) {
-      console.error(error);
+      console.log(error);
       res.status(500).send("Internal Server Error");
     }
   }
 
-  async delete(req: Request, res: Response) {
+  async delete(req: Request, res: Response): Promise<void> {
     try {
       const id: string = req.params.id;
       const deletedCandidate = await this.service.softDelete(id);
@@ -75,7 +75,7 @@ class CandidateController {
         res.status(404).send("Not found");
       }
     } catch (error) {
-      console.error(error);
+      console.log(error);
       res.status(500).send("Internal Server Error");
     }
   }

@@ -12,7 +12,7 @@ class CompanyController {
 
       res.status(201).json(createdCompany);
     } catch (error) {
-      console.error(error);
+      console.log(error);
       res.status(500).send("Internal Server Error");
     }
   }
@@ -28,6 +28,7 @@ class CompanyController {
         res.status(404).send("Not found");
       }
     } catch (error) {
+      console.log(error);
       res.status(500).send("Internal Server Error");
     }
   }
@@ -42,6 +43,7 @@ class CompanyController {
         res.status(404).send("Not Found");
       }
     } catch (error) {
+      console.log(error);
       res.status(500).send("Internal Server Error");
     }
   }
@@ -58,6 +60,7 @@ class CompanyController {
         res.status(404).send("Not found");
       }
     } catch (error) {
+      console.log(error);
       res.status(500).send("Internal Server Error");
     }
   }
@@ -73,6 +76,7 @@ class CompanyController {
         res.status(404).send("Not found");
       }
     } catch (error) {
+      console.log(error);
       res.status(500).send("Internal Server Error");
     }
   }

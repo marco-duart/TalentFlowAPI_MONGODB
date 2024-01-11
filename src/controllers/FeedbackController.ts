@@ -11,6 +11,7 @@ class FeedbackController {
       const createdFeedback = await this.service.create(data);
       res.status(201).json(createdFeedback);
     } catch (error) {
+      console.log(error);
       res.status(500).send("Internal Server Error");
     }
   }
@@ -26,6 +27,7 @@ class FeedbackController {
         res.status(404).send("Not found");
       }
     } catch (error) {
+      console.log(error);
       res.status(500).send("Internal Server Error");
     }
   }
@@ -40,6 +42,7 @@ class FeedbackController {
         res.status(404).send("Not found");
       }
     } catch (error) {
+      console.log(error);
       res.status(500).send("Internal Server Error");
     }
   }
@@ -56,6 +59,7 @@ class FeedbackController {
         res.status(404).send("Not found");
       }
     } catch (error) {
+      console.log(error);
       res.status(500).send("Internal Server Error");
     }
   }
@@ -71,6 +75,7 @@ class FeedbackController {
         res.status(404).send("Not found");
       }
     } catch (error) {
+      console.log(error);
       res.status(500).send("Internal Server Error");
     }
   }
