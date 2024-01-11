@@ -11,6 +11,6 @@ export class InterviewModule {
     const service = new InterviewService(repository)
     const controller = new InterviewController(service)
 
-    return {controller}
+    return {controller, service, repository}
   }
 }

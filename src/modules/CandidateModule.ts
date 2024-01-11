@@ -11,6 +11,6 @@ export class CandidateModule {
     const service = new CandidateService(repository)
     const controller = new CandidateController(service)
 
-    return {controller}
+    return {controller, service, repository}
   }
 }

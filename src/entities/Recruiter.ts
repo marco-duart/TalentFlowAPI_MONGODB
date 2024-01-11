@@ -2,6 +2,8 @@ import { Schema, model, Document } from "mongoose";
 
 export interface IRecruiter extends Document {
   name: string;
+  email: string;
+  password: string;
   position: string;
   contactInformation: {
     phoneNumber: string[];
@@ -20,7 +22,9 @@ export interface IRecruiter extends Document {
 
 export const RecruiterSchema = new Schema(
   {
-    name: { type: String, required: true },
+    name: { type: String, required: true, minLength: 3 },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true, minLength: 8 },
     position: { type: String, required: true },
     contactInformation: {
       phoneNumber: [{ type: String, required: true }],

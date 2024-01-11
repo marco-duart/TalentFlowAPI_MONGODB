@@ -11,6 +11,6 @@ export class RecruiterModule {
     const service = new RecruiterService(repository)
     const controller = new RecruiterController(service)
 
-    return {controller}
+    return {controller, service, repository}
   }
 }

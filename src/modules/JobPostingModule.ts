@@ -11,6 +11,6 @@ export class JobPostingModule {
     const service = new JobPostingService(repository)
     const controller = new JobPostingController(service)
 
-    return {controller}
+    return {controller, service, repository}
   }
 }

@@ -1,4 +1,6 @@
-import express, { Router } from "express";
+import express, { Request, Response, Router } from "express";
+import { logMiddleware } from "./middlewares/logMiddleware";
+import { AuthenticationModule } from "./modules/AuthenticationModule";
 import { ApplicationDocumentsModule } from "./modules/ApplicationDocumentsModule";
 import { ApplicationStatusModule } from "./modules/ApplicationStatusModule";
 import { CandidateModule } from "./modules/CandidateModule";
@@ -12,10 +14,20 @@ import { JobPostingModule } from "./modules/JobPostingModule";
 import { NotificationsModule } from "./modules/NotificationsModule";
 import { RecruiterModule } from "./modules/RecruiterModule";
 import { deleteCandidateMiddleware, getByIdCandidateMiddleware } from "./middlewares/candidateMiddleware";
-import { logMiddleware } from "./middlewares/logMiddleware";
+
 
 const router: Router = express.Router();
 router.use(express.json());
+
+router.get("/", (req: Request, res: Response): void => {
+  res.status(200).json({ message: "Welcome to fisrt route!"})
+})
+
+namespace AuthenticationRoutes {
+  const { controller } = AuthenticationModule.make()
+
+  router.post("/login", controller.login.bind(controller))
+}
 
 namespace ApplicationDocumentsRoutes {
   const { controller } = ApplicationDocumentsModule.make()

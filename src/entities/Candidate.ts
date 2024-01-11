@@ -3,6 +3,7 @@ import { Schema, model, Document } from "mongoose";
 export interface ICandidate extends Document {
   name: string;
   email: string;
+  password: string;
   phoneNumber: string;
   resume: string; //(file or text)
   portfolio: string;
@@ -29,7 +30,8 @@ export interface ICandidate extends Document {
 export const CandidateSchema = new Schema(
   {
     name: { type: String, required: true },
-    email: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true, minLength: 8},
     phoneNumber: { type: String, required: true },
     resume: { type: String, required: true },
     portfolio: { type: String, required: false },

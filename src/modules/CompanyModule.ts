@@ -11,6 +11,6 @@ export class CompanyModule {
     const service = new CompanyService(repository)
     const controller = new CompanyController(service)
 
-    return {controller}
+    return {controller, service, repository}
   }
 }

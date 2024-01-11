@@ -1,8 +1,9 @@
+import { hash } from 'bcrypt';
 import CandidateRepository from '../repositories/CandidateRepository';
 import { UpdateCandidateDTO, CreateCandidateDTO } from '../dto/CandidateDTO';
 import { ICandidate } from '../entities/Candidate';
-import { IApplicationDocuments } from '../entities/ApplicationDocuments';
-import { Schema } from 'mongoose';
+import { UserAlreadyExistsError } from '../shared/errors/UserAlreadyExistsError';
+
 
 class CandidateService {
   private repository: CandidateRepository;
@@ -12,7 +13,19 @@ class CandidateService {
   }
 
   async create(data: CreateCandidateDTO): Promise<ICandidate> {
-    return await this.repository.create(data);
+    const candidateAlreadyExists = await this.repository.findByEmail(data.email)
+    if(candidateAlreadyExists) {
+      throw new UserAlreadyExistsError(candidateAlreadyExists.email)
+    }
+
+    const payload = {
+      ...data,
+      password: await hash(data.password, 8)
+    }
+
+    const result = await this.repository.create(payload);
+
+    return result
   }
 
   async getAll(): Promise<ICandidate[]> {

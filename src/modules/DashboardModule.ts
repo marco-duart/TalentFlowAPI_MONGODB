@@ -11,6 +11,6 @@ export class DashboardModule {
     const service = new DashboardService(repository)
     const controller = new DashboardController(service)
 
-    return {controller}
+    return {controller, service, repository}
   }
 }

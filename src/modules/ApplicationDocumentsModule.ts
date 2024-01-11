@@ -11,6 +11,6 @@ export class ApplicationDocumentsModule {
     const service = new ApplicationDocumentsService(repository)
     const controller = new ApplicationDocumentsController(service)
 
-    return {controller}
+    return {controller, service, repository}
   }
 }

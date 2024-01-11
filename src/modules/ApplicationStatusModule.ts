@@ -11,6 +11,6 @@ export class ApplicationStatusModule {
     const service = new ApplicationStatusService(repository)
     const controller = new ApplicationStatusController(service)
 
-    return {controller}
+    return {controller, service, repository}
   }
 }

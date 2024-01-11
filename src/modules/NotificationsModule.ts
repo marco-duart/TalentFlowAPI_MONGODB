@@ -11,6 +11,6 @@ export class NotificationsModule {
     const service = new NotificationsService(repository)
     const controller = new NotificationsController(service)
 
-    return {controller}
+    return {controller, service, repository}
   }
 }

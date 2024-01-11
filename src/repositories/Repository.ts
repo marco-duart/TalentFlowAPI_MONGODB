@@ -31,6 +31,14 @@ class BaseRepository<T extends Document> {
     return documents;
   }
 
+  async findByEmail(email: string): Promise<T | null> {
+    const document = await this.model.findOne({ email }).exec();
+    if (!document) {
+      throw new Error(`Email ${email} - Item não encontrado`);
+    }
+    return document;
+  }
+
   async update(id: string, data: Partial<T>): Promise<T | null> {
     const updatedDocument = await this.model.findByIdAndUpdate(id, { ...data }, { new: true }).exec();
     if (!updatedDocument) {

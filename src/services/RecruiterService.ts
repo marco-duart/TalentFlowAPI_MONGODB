@@ -1,7 +1,9 @@
+import { hash } from 'bcrypt';
 import RecruiterRepository from '../repositories/RecruiterRepository';
 import { UpdateRecruiterDTO, CreateRecruiterDTO } from '../dto/RecruiterDTO';
 import { IRecruiter } from '../entities/Recruiter';
-import { Schema } from 'mongoose';
+import { UserAlreadyExistsError } from '../shared/errors/UserAlreadyExistsError';
+
 
 class RecruiterService {
   private repository: RecruiterRepository;
@@ -11,7 +13,19 @@ class RecruiterService {
   }
 
   async create(data: CreateRecruiterDTO): Promise<IRecruiter> {
-    return await this.repository.create(data);
+    const recruiterAlreadyExists = await this.repository.findByEmail(data.email)
+    if(recruiterAlreadyExists) {
+      throw new UserAlreadyExistsError(recruiterAlreadyExists.email)
+    }
+
+    const payload = {
+      ...data,
+      password: await hash(data.password, 8)
+    }
+
+    const result = await this.repository.create(payload);
+
+    return result
   }
 
   async getAll(): Promise<IRecruiter[]> {

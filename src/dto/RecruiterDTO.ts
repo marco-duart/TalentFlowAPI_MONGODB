@@ -2,6 +2,8 @@ import { Schema } from "mongoose";
 
 export class CreateRecruiterDTO {
   name: string;
+  email: string;
+  password: string;
   position: string;
   contactInformation: {
     phoneNumber: string[];
@@ -18,6 +20,8 @@ export class CreateRecruiterDTO {
 
   constructor(Data: CreateRecruiter) {
     this.name = Data.name;
+    this.email = Data.email;
+    this.password = Data.password;
     this.position = Data.position;
     this.contactInformation = Data.contactInformation;
     this.assignedCandidateList = Data.assignedCandidateList.map((id) => id)
@@ -29,9 +33,11 @@ export class CreateRecruiterDTO {
 
 export class UpdateRecruiterDTO {
   id: string;
-  name: string;
-  position: string;
-  contactInformation: {
+  name?: string;
+  email?: string;
+  password?: string;
+  position?: string;
+  contactInformation?: {
     phoneNumber: string[];
     email: string[];
     companyLinks: {
@@ -39,14 +45,16 @@ export class UpdateRecruiterDTO {
       link: string;
     }[];
   };
-  assignedCandidateList: string[];
-  candidateFeedback: string[];
-  interviews: string[];
-  hiringProcesses: string[];
+  assignedCandidateList?: string[];
+  candidateFeedback?: string[];
+  interviews?: string[];
+  hiringProcesses?: string[];
 
   constructor(Data: UpdateRecruiter) {
     this.id = Data.id;
     this.name = Data.name;
+    this.email = Data.email;
+    this.password = Data.password;
     this.position = Data.position;
     this.contactInformation = Data.contactInformation;
     this.assignedCandidateList = Data.assignedCandidateList.map((id) => id)
@@ -60,6 +68,8 @@ export class UpdateRecruiterDTO {
 
 type CreateRecruiter = {
   name: string;
+  email: string;
+  password: string;
   position: string;
   contactInformation: {
     phoneNumber: string[];
@@ -78,6 +88,8 @@ type CreateRecruiter = {
 type UpdateRecruiter = {
   id: string;
   name: string;
+  email: string;
+  password: string;
   position: string;
   contactInformation: {
     phoneNumber: string[];
