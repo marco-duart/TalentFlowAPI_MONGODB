@@ -15,14 +15,14 @@ export class CreateNotificationsDTO {
 }
 
 export class UpdateNotificationsDTO {
-  id: Schema.Types.ObjectId;
+  id: string;
   notificationType: string;
   recipient: string;
   message: string;
   dateTime: Date;
 
   constructor(Data: UpdateNotifications) {
-    this.id = new Schema.Types.ObjectId(Data.id);
+    this.id = Data.id;
     this.notificationType = Data.notificationType;
     this.recipient = Data.recipient;
     this.message = Data.message;

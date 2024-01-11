@@ -19,15 +19,15 @@ class ApplicationStatusService {
   }
 
   async getById(id: string): Promise<IApplicationStatus | null > {
-    return await this.repository.findById(new Schema.Types.ObjectId(id));
+    return await this.repository.findById(id);
   }
 
   async update(id: string, data: UpdateApplicationStatusDTO): Promise<IApplicationStatus | null > {
-    return await this.repository.update(new Schema.Types.ObjectId(id), data)
+    return await this.repository.update(id, data)
   }
 
   async softDelete(id: string): Promise<IApplicationStatus | null > {
-    return await this.repository.softDelete(new Schema.Types.ObjectId(id))
+    return await this.repository.softDelete(id)
   }
 
 }

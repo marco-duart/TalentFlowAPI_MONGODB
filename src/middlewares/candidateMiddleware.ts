@@ -30,7 +30,7 @@ export function updateCandidateMiddleware(req: Request, res: Response, next: Nex
     }
 
     next()
-}
+} 
 
 export function getByIdCandidateMiddleware(req: Request, res: Response, next: NextFunction) {
     const { params } = req

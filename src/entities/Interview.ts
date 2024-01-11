@@ -10,9 +10,9 @@ export interface IInterview extends Document {
   questions: string[];
   answers: string[];
   interviewFeedback: string;
-  candidate: Schema.Types.ObjectId;
-  hiringProcess: Schema.Types.ObjectId;
-  recruiter: Schema.Types.ObjectId;
+  candidate: string;
+  hiringProcess: string;
+  recruiter: string;
   deletedAt: Date;
 }
 

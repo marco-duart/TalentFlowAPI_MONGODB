@@ -4,29 +4,29 @@ export class CreateApplicationDocumentsDTO {
   resume?: string;
   coverLetter: string;
   relevantDocuments: string[];
-  candidate: Schema.Types.ObjectId;
+  candidate: string;
 
   constructor(Data: CreateApplicationDocuments) {
     this.resume = Data.resume;
     this.coverLetter = Data.coverLetter;
     this.relevantDocuments = Data.relevantDocuments;
-    this.candidate = new Schema.Types.ObjectId(Data.candidate);
+    this.candidate = Data.candidate;
   }
 }
 
 export class UpdateApplicationDocumentsDTO {
-  id: Schema.Types.ObjectId;
+  id: string;
   resume?: string;
   coverLetter?: string;
   relevantDocuments?: string[];
-  candidate?: Schema.Types.ObjectId;
+  candidate?: string;
 
   constructor(Data: UpdateApplicationDocuments) {
-    this.id = new Schema.Types.ObjectId(Data.id);
+    this.id = Data.id;
     this.resume = Data.resume;
     this.coverLetter = Data.coverLetter;
     this.relevantDocuments = Data.relevantDocuments;
-    this.candidate = new Schema.Types.ObjectId(Data.candidate);
+    this.candidate = Data.candidate;
   }
 }
 

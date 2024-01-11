@@ -17,7 +17,7 @@ export class CreateEmploymentHistoryDTO {
 }
 
 export class UpdateEmploymentHistoryDTO {
-  id: Schema.Types.ObjectId;
+  id: string;
   companyName: string;
   position: string;
   startDate: Date;
@@ -25,7 +25,7 @@ export class UpdateEmploymentHistoryDTO {
   achievements: string;
 
   constructor(Data: UpdateEmploymentHistory) {
-    this.id = new Schema.Types.ObjectId(Data.id);
+    this.id = Data.id;
     this.companyName = Data.companyName;
     this.position = Data.position;
     this.startDate = Data.startDate;

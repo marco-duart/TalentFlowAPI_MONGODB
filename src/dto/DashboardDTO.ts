@@ -15,14 +15,14 @@ export class CreateDashboardDTO {
 }
 
 export class UpdateDashboardDTO {
-  id: Schema.Types.ObjectId;
+  id: string;
   overview: string;
   statistics: string;
   permissions: string;
   reporting: string;
 
   constructor(Data: UpdateDashboard) {
-    this.id = new Schema.Types.ObjectId(Data.id);
+    this.id = Data.id;
     this.overview = Data.overview;
     this.statistics = Data.statistics;
     this.permissions = Data.permissions;

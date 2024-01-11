@@ -3,30 +3,30 @@ import { Schema } from "mongoose";
 export class CreateApplicationStatusDTO {
   status: string;
   additionalComments?: string;
-  candidate: Schema.Types.ObjectId;
-  hiringProcess: Schema.Types.ObjectId;
+  candidate: string;
+  hiringProcess: string;
 
   constructor(Data: CreateApplicationStatus) {
     this.status = Data.status;
     this.additionalComments = Data.additionalComments;
-    this.candidate = new Schema.Types.ObjectId(Data.candidate);
-    this.hiringProcess = new Schema.Types.ObjectId(Data.hiringProcess);
+    this.candidate = Data.candidate;
+    this.hiringProcess = Data.hiringProcess;
   }
 }
 
 export class UpdateApplicationStatusDTO {
-  id: Schema.Types.ObjectId;
+  id: string;
   status?: string;
   additionalComments?: string;
-  candidate?: Schema.Types.ObjectId;
-  hiringProcess?: Schema.Types.ObjectId;
+  candidate?: string;
+  hiringProcess?: string;
 
   constructor(Data: UpdateApplicationStatus) {
-    this.id = new Schema.Types.ObjectId(Data.id);
+    this.id = Data.id;
     this.status = Data.status;
     this.additionalComments = Data.additionalComments;
-    this.candidate = new Schema.Types.ObjectId(Data.candidate);
-    this.hiringProcess = new Schema.Types.ObjectId(Data.hiringProcess);
+    this.candidate = Data.candidate;
+    this.hiringProcess = Data.hiringProcess;
   }
 }
 

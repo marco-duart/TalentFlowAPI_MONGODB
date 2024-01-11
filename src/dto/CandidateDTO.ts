@@ -18,11 +18,11 @@ export class CreateCandidateDTO {
     title: string;
     link: string;
   }[];
-  employmentHistory?: Schema.Types.ObjectId;
-  applicationStatus?: Schema.Types.ObjectId[];
-  interviews?: Schema.Types.ObjectId[];
-  feedback?: Schema.Types.ObjectId[];
-  applicationDocuments?: Schema.Types.ObjectId[];
+  employmentHistory?: string;
+  applicationStatus?: string[];
+  interviews?: string[];
+  feedback?: string[];
+  applicationDocuments?: string[];
 
   constructor(Data: CreateCandidate) {
     this.name = Data.name;
@@ -33,20 +33,20 @@ export class CreateCandidateDTO {
     this.academicHistory = Data.academicHistory;
     this.skills = Data.skills;
     this.professionalLinks = Data.professionalLinks;
-    this.employmentHistory = new Schema.Types.ObjectId(Data.employmentHistory);
+    this.employmentHistory = Data.employmentHistory;
     this.applicationStatus = Data.applicationStatus.map(
-      (id) => new Schema.Types.ObjectId(id)
+      (id) => id
     );
-    this.interviews = Data.interviews.map((id) => new Schema.Types.ObjectId(id));
-    this.feedback = Data.feedback.map((id) => new Schema.Types.ObjectId(id));
+    this.interviews = Data.interviews.map((id) => id);
+    this.feedback = Data.feedback.map((id) => id);
     this.applicationDocuments = Data.applicationDocuments.map(
-      (id) => new Schema.Types.ObjectId(id)
+      (id) => id
     );
   }
 }
 
 export class UpdateCandidateDTO {
-  id: Schema.Types.ObjectId;
+  id: string;
   name: string;
   email: string;
   phoneNumber: string;
@@ -64,14 +64,14 @@ export class UpdateCandidateDTO {
     title: string;
     link: string;
   }[];
-  employmentHistory?: Schema.Types.ObjectId;
-  applicationStatus?: Schema.Types.ObjectId[];
-  interviews?: Schema.Types.ObjectId[];
-  feedback?: Schema.Types.ObjectId[];
-  applicationDocuments?: Schema.Types.ObjectId[];
+  employmentHistory?: string;
+  applicationStatus?: string[];
+  interviews?: string[];
+  feedback?: string[];
+  applicationDocuments?: string[];
 
   constructor(Data: UpdateCandidate) {
-    this.id = new Schema.Types.ObjectId(Data.id);
+    this.id = Data.id;
     this.name = Data.name;
     this.email = Data.email;
     this.phoneNumber = Data.phoneNumber;
@@ -80,14 +80,14 @@ export class UpdateCandidateDTO {
     this.academicHistory = Data.academicHistory;
     this.skills = Data.skills;
     this.professionalLinks = Data.professionalLinks;
-    this.employmentHistory = new Schema.Types.ObjectId(Data.employmentHistory);
+    this.employmentHistory = Data.employmentHistory;
     this.applicationStatus = Data.applicationStatus.map(
-      (id) => new Schema.Types.ObjectId(id)
+      (id) => id
     );
-    this.interviews = Data.interviews.map((id) => new Schema.Types.ObjectId(id));
-    this.feedback = Data.feedback.map((id) => new Schema.Types.ObjectId(id));
+    this.interviews = Data.interviews.map((id) => id);
+    this.feedback = Data.feedback.map((id) => id);
     this.applicationDocuments = Data.applicationDocuments.map(
-      (id) => new Schema.Types.ObjectId(id)
+      (id) => id
     );
   }
 }

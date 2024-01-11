@@ -18,11 +18,11 @@ export interface ICandidate extends Document {
     title: string;
     link: string;
   }[];
-  employmentHistory: Schema.Types.ObjectId;
-  applicationStatus: Schema.Types.ObjectId[];
-  interviews: Schema.Types.ObjectId[];
-  feedback: Schema.Types.ObjectId[];
-  applicationDocuments: Schema.Types.ObjectId[];
+  employmentHistory: string
+  applicationStatus: string[]
+  interviews: string[]
+  feedback: string[]
+  applicationDocuments: string[]
   deletedAt: Date;
 }
 

@@ -13,7 +13,7 @@ export interface ICompany extends Document {
       link: string;
     }[];
   };
-  jobPostings: Schema.Types.ObjectId;
+  jobPostings: string;
   deletedAt: Date;
 }
 

@@ -11,24 +11,24 @@ export class CreateRecruiterDTO {
       link: string;
     }[];
   };
-  assignedCandidateList: Schema.Types.ObjectId[];
-  candidateFeedback: Schema.Types.ObjectId[];
-  interviews: Schema.Types.ObjectId[];
-  hiringProcesses: Schema.Types.ObjectId[];
+  assignedCandidateList: string[];
+  candidateFeedback: string[];
+  interviews: string[];
+  hiringProcesses: string[];
 
   constructor(Data: CreateRecruiter) {
     this.name = Data.name;
     this.position = Data.position;
     this.contactInformation = Data.contactInformation;
-    this.assignedCandidateList = Data.assignedCandidateList.map((id) => new Schema.Types.ObjectId(id))
-		this.candidateFeedback = Data.candidateFeedback.map((id) => new Schema.Types.ObjectId(id))
-    this.interviews = Data.interviews.map((id) => new Schema.Types.ObjectId(id))
-    this.hiringProcesses = Data.hiringProcesses.map((id) => new Schema.Types.ObjectId(id))
+    this.assignedCandidateList = Data.assignedCandidateList.map((id) => id)
+		this.candidateFeedback = Data.candidateFeedback.map((id) => id)
+    this.interviews = Data.interviews.map((id) => id)
+    this.hiringProcesses = Data.hiringProcesses.map((id) => id)
   }
 }
 
 export class UpdateRecruiterDTO {
-  id: Schema.Types.ObjectId;
+  id: string;
   name: string;
   position: string;
   contactInformation: {
@@ -39,20 +39,20 @@ export class UpdateRecruiterDTO {
       link: string;
     }[];
   };
-  assignedCandidateList: Schema.Types.ObjectId[];
-  candidateFeedback: Schema.Types.ObjectId[];
-  interviews: Schema.Types.ObjectId[];
-  hiringProcesses: Schema.Types.ObjectId[];
+  assignedCandidateList: string[];
+  candidateFeedback: string[];
+  interviews: string[];
+  hiringProcesses: string[];
 
   constructor(Data: UpdateRecruiter) {
-    this.id = new Schema.Types.ObjectId(Data.id);
+    this.id = Data.id;
     this.name = Data.name;
     this.position = Data.position;
     this.contactInformation = Data.contactInformation;
-    this.assignedCandidateList = Data.assignedCandidateList.map((id) => new Schema.Types.ObjectId(id))
-		this.candidateFeedback = Data.candidateFeedback.map((id) => new Schema.Types.ObjectId(id))
-    this.interviews = Data.interviews.map((id) => new Schema.Types.ObjectId(id))
-    this.hiringProcesses = Data.hiringProcesses.map((id) => new Schema.Types.ObjectId(id))
+    this.assignedCandidateList = Data.assignedCandidateList.map((id) => id)
+		this.candidateFeedback = Data.candidateFeedback.map((id) => id)
+    this.interviews = Data.interviews.map((id) => id)
+    this.hiringProcesses = Data.hiringProcesses.map((id) => id)
   }
 }
 

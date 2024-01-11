@@ -11,7 +11,7 @@ import { InterviewModule } from "./modules/InterviewModule";
 import { JobPostingModule } from "./modules/JobPostingModule";
 import { NotificationsModule } from "./modules/NotificationsModule";
 import { RecruiterModule } from "./modules/RecruiterModule";
-import { getByIdCandidateMiddleware } from "./middlewares/candidateMiddleware";
+import { deleteCandidateMiddleware, getByIdCandidateMiddleware } from "./middlewares/candidateMiddleware";
 import { logMiddleware } from "./middlewares/logMiddleware";
 
 const router: Router = express.Router();
@@ -44,7 +44,7 @@ namespace CandidateRoutes {
   router.get("/candidate/:id", logMiddleware, getByIdCandidateMiddleware, controller.getById.bind(controller));
   router.get("/candidate", logMiddleware, controller.getAll.bind(controller));
   router.patch("/candidate/:id", logMiddleware, controller.update.bind(controller))
-  router.delete("candidate/:id", logMiddleware, controller.delete.bind(controller))
+  router.delete("/candidate/:id", logMiddleware, deleteCandidateMiddleware, controller.delete.bind(controller))
 }
 
 

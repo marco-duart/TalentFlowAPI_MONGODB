@@ -3,8 +3,8 @@ import { Schema, model, Document } from "mongoose";
 export interface IApplicationStatus extends Document {
   status: string; //(pending, under review, approved, rejected)
   additionalComments: string;
-  candidate: Schema.Types.ObjectId;
-  hiringProcess: Schema.Types.ObjectId;
+  candidate: string
+  hiringProcess: string
   deletedAt: Date;
 }
 

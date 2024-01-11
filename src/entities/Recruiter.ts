@@ -11,10 +11,10 @@ export interface IRecruiter extends Document {
       link: string;
     }[];
   };
-  assignedCandidateList: Schema.Types.ObjectId[];
-  candidateFeedback: Schema.Types.ObjectId[];
-  interviews: Schema.Types.ObjectId[];
-  hiringProcesses: Schema.Types.ObjectId[];
+  assignedCandidateList: string[];
+  candidateFeedback: string[];
+  interviews: string[];
+  hiringProcesses: string[];
   deletedAt: Date;
 }
 

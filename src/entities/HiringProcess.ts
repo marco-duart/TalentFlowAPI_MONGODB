@@ -6,9 +6,9 @@ export interface IHiringProcess extends Document {
   stage: string; //(interviews, tests, etc.)
   recruiter: string;
   status: string; //(open, in progress, closed)
-  interviews: Schema.Types.ObjectId[];
-  applicationStatus: Schema.Types.ObjectId[];
-  recruiters: Schema.Types.ObjectId[];
+  interviews: string[];
+  applicationStatus: string[];
+  recruiters: string[];
   deletedAt: Date;
 }
 

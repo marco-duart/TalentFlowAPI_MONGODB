@@ -4,7 +4,7 @@ export interface IApplicationDocuments extends Document {
   resume: string; 
   coverLetter: string; 
   relevantDocuments: string[];
-  candidate: Schema.Types.ObjectId;
+  candidate: string
   deletedAt: Date;
 }
 

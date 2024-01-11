@@ -8,7 +8,7 @@ export class CreateJobPostingDTO {
   salary: string;
   startDate: Date;
   endDate: Date;
-  hiringProcess: Schema.Types.ObjectId[];
+  hiringProcess: string[];
 
   constructor(Data: CreateJobPosting) {
     this.title = Data.title;
@@ -18,12 +18,12 @@ export class CreateJobPostingDTO {
     this.salary = Data.salary;
     this.startDate = Data.startDate;
     this.endDate = Data.endDate;
-    this.hiringProcess = Data.hiringProcess.map((id) => new Schema.Types.ObjectId(id))
+    this.hiringProcess = Data.hiringProcess.map((id) => id)
   }
 }
 
 export class UpdateJobPostingDTO {
-  id: Schema.Types.ObjectId;
+  id: string;
   title: string;
   description: string;
   requirements: string[];
@@ -31,10 +31,10 @@ export class UpdateJobPostingDTO {
   salary: string;
   startDate: Date;
   endDate: Date;
-  hiringProcess: Schema.Types.ObjectId[];
+  hiringProcess: string[];
 
   constructor(Data: UpdateJobPosting) {
-    this.id = new Schema.Types.ObjectId(Data.id);
+    this.id = Data.id;
     this.title = Data.title;
     this.description = Data.description;
     this.requirements = Data.requirements;
@@ -42,7 +42,7 @@ export class UpdateJobPostingDTO {
     this.salary = Data.salary;
     this.startDate = Data.startDate;
     this.endDate = Data.endDate;
-    this.hiringProcess = Data.hiringProcess.map((id) => new Schema.Types.ObjectId(id))
+    this.hiringProcess = Data.hiringProcess.map((id) => id)
   }
 }
 

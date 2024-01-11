@@ -8,7 +8,7 @@ export interface IJobPosting extends Document {
   salary: string;
   startDate: Date;
   endDate: Date;
-  hiringProcess: Schema.Types.ObjectId[];
+  hiringProcess: string[];
   deletedAt: Date;
 }
 

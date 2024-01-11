@@ -10,9 +10,9 @@ export class CreateInterviewDTO {
   questions: string[];
   answers: string[];
   interviewFeedback: string;
-  candidate: Schema.Types.ObjectId;
-  hiringProcess: Schema.Types.ObjectId;
-  recruiter: Schema.Types.ObjectId;
+  candidate: string;
+  hiringProcess: string;
+  recruiter: string;
 
   constructor(Data: CreateInterview) {
     this.dateTime = Data.dateTime;
@@ -21,14 +21,14 @@ export class CreateInterviewDTO {
     this.questions = Data.questions;
     this.answers = Data.answers;
     this.interviewFeedback = Data.interviewFeedback;
-    this.candidate = new Schema.Types.ObjectId(Data.candidate);
-    this.hiringProcess = new Schema.Types.ObjectId(Data.hiringProcess);
-    this.recruiter = new Schema.Types.ObjectId(Data.recruiter);
+    this.candidate = Data.candidate;
+    this.hiringProcess = Data.hiringProcess;
+    this.recruiter = Data.recruiter;
   }
 }
 
 export class UpdateInterviewDTO {
-  id: Schema.Types.ObjectId;
+  id: string;
   dateTime: Date;
   interviewType: string;
   interviewer: {
@@ -38,21 +38,21 @@ export class UpdateInterviewDTO {
   questions: string[];
   answers: string[];
   interviewFeedback: string;
-  candidate: Schema.Types.ObjectId;
-  hiringProcess: Schema.Types.ObjectId;
-  recruiter: Schema.Types.ObjectId;
+  candidate: string;
+  hiringProcess: string;
+  recruiter: string;
 
   constructor(Data: UpdateInterview) {
-    this.id = new Schema.Types.ObjectId(Data.id);
+    this.id = Data.id;
     this.dateTime = Data.dateTime;
     this.interviewType = Data.interviewType;
     this.interviewer = Data.interviewer;
     this.questions = Data.questions;
     this.answers = Data.answers;
     this.interviewFeedback = Data.interviewFeedback;
-    this.candidate = new Schema.Types.ObjectId(Data.candidate);
-    this.hiringProcess = new Schema.Types.ObjectId(Data.hiringProcess);
-    this.recruiter = new Schema.Types.ObjectId(Data.recruiter);
+    this.candidate = Data.candidate;
+    this.hiringProcess = Data.hiringProcess;
+    this.recruiter = Data.recruiter;
   }
 }
 
