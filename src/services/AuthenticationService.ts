@@ -36,6 +36,6 @@ export class AuthenticationService {
 
     const token = sign(payload, secretKey, options)
 
-    return { token, user}
+    return { token, user }
   }
 }
