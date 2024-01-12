@@ -3,7 +3,6 @@ import { Schema, model, Document } from "mongoose";
 export interface ICandidate extends Document {
   name: string;
   email: string;
-  password: string;
   phoneNumber: string;
   resume: string; //(file or text)
   portfolio: string;
@@ -31,24 +30,23 @@ export const CandidateSchema = new Schema(
   {
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
-    password: { type: String, required: true, minLength: 8},
     phoneNumber: { type: String, required: true },
     resume: { type: String, required: true },
-    portfolio: { type: String, required: false },
+    portfolio: { type: String },
     academicHistory: [
       {
-        title: { type: String, required: false },
-        institution: { type: String, required: false },
-        degree: { type: String, required: false },
-        startDate: { type: Date, required: false },
-        endDate: { type: Date, required: false },
+        title: { type: String },
+        institution: { type: String },
+        degree: { type: String },
+        startDate: { type: Date },
+        endDate: { type: Date },
       },
     ],
-    skills: { type: [String], required: false },
+    skills: { type: [String] },
     professionalLinks: [
       {
-        title: { type: String, required: false },
-        link: { type: String, required: false },
+        title: { type: String },
+        link: { type: String },
       },
     ],
     employmentHistory: {
@@ -63,7 +61,7 @@ export const CandidateSchema = new Schema(
     applicationDocuments: [
       { type: Schema.Types.ObjectId, ref: "ApplicationDocument" },
     ],
-    deletedAt: { type: Date, required: false},
+    deletedAt: { type: Date},
   },
   { timestamps: true }
 );

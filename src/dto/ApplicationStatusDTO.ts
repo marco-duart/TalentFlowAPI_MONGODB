@@ -1,5 +1,3 @@
-import { Schema } from "mongoose";
-
 export class CreateApplicationStatusDTO {
   status: string;
   additionalComments?: string;

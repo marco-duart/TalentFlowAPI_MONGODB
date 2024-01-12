@@ -14,7 +14,7 @@ export const FeedbackSchema = new Schema(
     overallAssessment: { type: String, required: true },
     specificComments: { type: String, required: true },
     recommendation: { type: String, required: true },
-    deletedAt: { type: Date, required: false},
+    deletedAt: { type: Date},
   },
   { timestamps: true }
 );

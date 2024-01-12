@@ -1,5 +1,3 @@
-import { Schema } from "mongoose";
-
 export class CreateFeedbackDTO {
   feedbackDate: Date;
   overallAssessment: string;

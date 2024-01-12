@@ -16,7 +16,7 @@ export const EmploymentHistorySchema = new Schema(
     startDate: { type: Date, required: true },
     endDate: { type: Date, required: true },
     achievements: { type: String, required: true },
-    deletedAt: { type: Date, required: false},
+    deletedAt: { type: Date},
   },
   { timestamps: true }
 );

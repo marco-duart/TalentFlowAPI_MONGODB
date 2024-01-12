@@ -14,7 +14,7 @@ export const NotificationsSchema = new Schema(
     recipient: { type: Schema.Types.ObjectId, required: true },
     message: { type: String, required: true },
     dateTime: { type: Date, required: true },
-    deletedAt: { type: Date, required: false},
+    deletedAt: { type: Date},
   },
   { timestamps: true }
 );

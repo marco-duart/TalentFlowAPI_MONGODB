@@ -34,7 +34,7 @@ export const InterviewSchema = new Schema(
     candidate: { type: Schema.Types.ObjectId, ref: "Candidate" },
     hiringProcess: { type: Schema.Types.ObjectId, ref: "HiringProcess" },
     recruiter: { type: Schema.Types.ObjectId, ref: "Recruiter" },
-    deletedAt: { type: Date, required: false},
+    deletedAt: { type: Date},
   },
   { timestamps: true }
 );

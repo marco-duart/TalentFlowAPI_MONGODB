@@ -3,7 +3,6 @@ import { Schema, model, Document } from "mongoose";
 export interface IRecruiter extends Document {
   name: string;
   email: string;
-  password: string;
   position: string;
   contactInformation: {
     phoneNumber: string[];
@@ -24,7 +23,6 @@ export const RecruiterSchema = new Schema(
   {
     name: { type: String, required: true, minLength: 3 },
     email: { type: String, required: true, unique: true },
-    password: { type: String, required: true, minLength: 8 },
     position: { type: String, required: true },
     contactInformation: {
       phoneNumber: [{ type: String, required: true }],
@@ -40,7 +38,7 @@ export const RecruiterSchema = new Schema(
     candidateFeedback: [{ type: Schema.Types.ObjectId, ref: "Feedback" }],
     interviews: [{ type: Schema.Types.ObjectId, ref: "Interview" }],
     hiringProcesses: [{ type: Schema.Types.ObjectId, ref: "HiringProcess" }],
-    deletedAt: { type: Date, required: false},
+    deletedAt: { type: Date},
   },
   { timestamps: true }
 );

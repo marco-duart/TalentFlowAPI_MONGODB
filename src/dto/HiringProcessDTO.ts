@@ -1,5 +1,3 @@
-import { Schema } from "mongoose";
-
 export class CreateHiringProcessDTO {
   startDate: Date;
   endDate: Date;

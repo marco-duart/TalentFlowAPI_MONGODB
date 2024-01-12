@@ -1,5 +1,3 @@
-import { Schema } from "mongoose";
-
 export class CreateJobPostingDTO {
   title: string;
   description: string;

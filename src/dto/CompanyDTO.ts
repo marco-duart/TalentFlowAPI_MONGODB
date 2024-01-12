@@ -1,5 +1,3 @@
-import { Schema } from "mongoose";
-
 export class CreateCompanyDTO {
     companyName: string;
     sector: string;

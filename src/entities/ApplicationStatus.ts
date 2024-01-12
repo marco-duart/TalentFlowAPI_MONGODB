@@ -11,10 +11,10 @@ export interface IApplicationStatus extends Document {
 export const ApplicationStatusSchema = new Schema(
   {
     status: { type: String, required: true },
-    additionalComments: { type: String, required: false },
+    additionalComments: { type: String },
     candidate: { type: Schema.Types.ObjectId, ref: "Candidate" },
     hiringProcess: { type: Schema.Types.ObjectId, ref: "HiringProcess" },
-    deletedAt: { type: Date, required: false},
+    deletedAt: { type: Date},
   },
   { timestamps: true }
 );

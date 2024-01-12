@@ -1,5 +1,3 @@
-import { Schema } from "mongoose";
-
 export class CreateApplicationDocumentsDTO {
   resume?: string;
   coverLetter: string;

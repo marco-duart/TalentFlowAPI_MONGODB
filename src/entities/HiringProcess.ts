@@ -15,7 +15,7 @@ export interface IHiringProcess extends Document {
 export const HiringProcessSchema = new Schema(
   {
     startDate: { type: Date, required: true },
-    endDate: { type: Date, required: false },
+    endDate: { type: Date },
     stage: { type: String, required: true }, // (interviews, tests, etc.)
     status: {
       type: String,
@@ -27,7 +27,7 @@ export const HiringProcessSchema = new Schema(
       { type: Schema.Types.ObjectId, ref: "ApplicationStatus" },
     ],
     recruiters: [{ type: Schema.Types.ObjectId, ref: "Recruiter" }],
-    deletedAt: { type: Date, required: false},
+    deletedAt: { type: Date},
   },
   { timestamps: true }
 );

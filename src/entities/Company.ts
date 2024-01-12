@@ -25,12 +25,12 @@ export const CompanySchema = new Schema(
     companyLocation: { type: String, required: true },
     contactInformation: [
       {
-        title: { type: String, required: false },
-        link: { type: String, required: false },
+        title: { type: String },
+        link: { type: String },
       },
     ],
     jobPostings: [{ type: Schema.Types.ObjectId, ref: "JobPosting" }],
-    deletedAt: { type: Date, required: false},
+    deletedAt: { type: Date},
   },
   { timestamps: true }
 );

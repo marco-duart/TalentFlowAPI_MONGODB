@@ -11,10 +11,10 @@ export interface IApplicationDocuments extends Document {
 export const ApplicationDocumentsSchema = new Schema(
   {
     resume: { type: String, required: true },
-    coverLetter: { type: String, required: false },
-    relevantDocuments: [{ type: String, required: false }],
+    coverLetter: { type: String },
+    relevantDocuments: [{ type: String }],
     candidate: { type: Schema.Types.ObjectId, ref: "Candidate" },
-    deletedAt: { type: Date, required: false},
+    deletedAt: { type: Date},
   },
   { timestamps: true }
 );

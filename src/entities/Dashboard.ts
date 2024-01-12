@@ -14,7 +14,7 @@ export const DashboardSchema = new Schema(
     statistics: { type: String, required: true },
     permissions: { type: String, required: true },
     reporting: { type: String, required: true },
-    deletedAt: { type: Date, required: false},
+    deletedAt: { type: Date},
   },
   { timestamps: true }
 );

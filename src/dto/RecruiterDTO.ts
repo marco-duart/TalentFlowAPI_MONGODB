@@ -3,7 +3,6 @@ import { Schema } from "mongoose";
 export class CreateRecruiterDTO {
   name: string;
   email: string;
-  password: string;
   position: string;
   contactInformation: {
     phoneNumber: string[];
@@ -21,7 +20,6 @@ export class CreateRecruiterDTO {
   constructor(Data: CreateRecruiter) {
     this.name = Data.name;
     this.email = Data.email;
-    this.password = Data.password;
     this.position = Data.position;
     this.contactInformation = Data.contactInformation;
     this.assignedCandidateList = Data.assignedCandidateList.map((id) => id)
@@ -35,7 +33,6 @@ export class UpdateRecruiterDTO {
   id: string;
   name?: string;
   email?: string;
-  password?: string;
   position?: string;
   contactInformation?: {
     phoneNumber: string[];
@@ -54,7 +51,6 @@ export class UpdateRecruiterDTO {
     this.id = Data.id;
     this.name = Data.name;
     this.email = Data.email;
-    this.password = Data.password;
     this.position = Data.position;
     this.contactInformation = Data.contactInformation;
     this.assignedCandidateList = Data.assignedCandidateList.map((id) => id)
@@ -69,7 +65,6 @@ export class UpdateRecruiterDTO {
 type CreateRecruiter = {
   name: string;
   email: string;
-  password: string;
   position: string;
   contactInformation: {
     phoneNumber: string[];
@@ -89,7 +84,6 @@ type UpdateRecruiter = {
   id: string;
   name: string;
   email: string;
-  password: string;
   position: string;
   contactInformation: {
     phoneNumber: string[];

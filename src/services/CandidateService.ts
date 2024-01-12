@@ -1,4 +1,3 @@
-import { hash } from 'bcrypt';
 import CandidateRepository from '../repositories/CandidateRepository';
 import { UpdateCandidateDTO, CreateCandidateDTO } from '../dto/CandidateDTO';
 import { ICandidate } from '../entities/Candidate';
@@ -13,17 +12,7 @@ class CandidateService {
   }
 
   async create(data: CreateCandidateDTO): Promise<ICandidate> {
-    const candidateAlreadyExists = await this.repository.findByEmail(data.email)
-    if(candidateAlreadyExists) {
-      throw new UserAlreadyExistsError(candidateAlreadyExists.email)
-    }
-
-    const payload = {
-      ...data,
-      password: await hash(data.password, 8)
-    }
-
-    const result = await this.repository.create(payload);
+    const result = await this.repository.create(data);
 
     return result
   }

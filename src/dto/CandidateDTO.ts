@@ -1,9 +1,6 @@
-import { Schema } from "mongoose";
-
 export class CreateCandidateDTO {
   name: string;
   email: string;
-  password: string;
   phoneNumber: string;
   resume: string;
   portfolio?: string;
@@ -28,7 +25,6 @@ export class CreateCandidateDTO {
   constructor(Data: CreateCandidate) {
     this.name = Data.name;
     this.email = Data.email;
-    this.password = Data.password;
     this.phoneNumber = Data.phoneNumber;
     this.resume = Data.resume;
     this.portfolio = Data.portfolio;
@@ -51,7 +47,6 @@ export class UpdateCandidateDTO {
   id: string;
   name?: string;
   email?: string;
-  password?: string;
   phoneNumber?: string;
   resume?: string;
   portfolio?: string;
@@ -77,7 +72,6 @@ export class UpdateCandidateDTO {
     this.id = Data.id;
     this.name = Data.name;
     this.email = Data.email;
-    this.password = Data.password;
     this.phoneNumber = Data.phoneNumber;
     this.resume = Data.resume;
     this.portfolio = Data.portfolio;
@@ -101,7 +95,6 @@ export class UpdateCandidateDTO {
 type CreateCandidate = {
   name: string;
   email: string;
-  password: string;
   phoneNumber: string;
   resume: string;
   portfolio: string;
@@ -128,7 +121,6 @@ type UpdateCandidate = {
   id: string;
   name: string;
   email: string;
-  password: string;
   phoneNumber: string;
   resume: string;
   portfolio: string;

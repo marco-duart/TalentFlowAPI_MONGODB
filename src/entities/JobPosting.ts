@@ -22,7 +22,7 @@ export const JobPostingSchema = new Schema(
     startDate: { type: Date, required: true },
     endDate: { type: Date, required: true },
     hiringProcess: [{ type: Schema.Types.ObjectId, ref: "HiringProcess" }],
-    deletedAt: { type: Date, required: false},
+    deletedAt: { type: Date},
   },
   { timestamps: true }
 );

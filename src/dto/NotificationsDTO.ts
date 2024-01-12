@@ -1,5 +1,3 @@
-import { Schema } from "mongoose";
-
 export class CreateNotificationsDTO {
   notificationType: string;
   recipient: string;

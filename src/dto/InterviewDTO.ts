@@ -1,5 +1,3 @@
-import { Schema } from "mongoose";
-
 export class CreateInterviewDTO {
   dateTime: Date;
   interviewType: string;
