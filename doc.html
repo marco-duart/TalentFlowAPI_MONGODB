@@ -18,6 +18,18 @@
     <ol>
       <div>
         <details>
+          <summary>User</summary>
+          Representa os usuários do sistema. Possui um atributo chamado type(indicando o tipo de usuário) e profile(relacionando com o modelo de usuário específico) Relações:
+          <ul>
+            <li>
+              profile: Relacionamento com Candidate ou Recruiter.
+            </li>
+          </ul>
+        </details>
+      </div>
+
+      <div>
+        <details>
           <summary>Candidate</summary>
           Representa os candidatos que se candidatam a vagas. Ao gerar um novo
           candidato, deve ser gerado pelo menos 1 ApplicationDocuments Relações:
