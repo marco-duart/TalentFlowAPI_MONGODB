@@ -11,6 +11,6 @@ export class HiringProcessModule {
     const service = new HiringProcessService(repository)
     const controller = new HiringProcessController(service)
 
-    return {controller, service, repository}
+    return { controller, service, repository }
   }
 }

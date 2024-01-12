@@ -11,6 +11,6 @@ export class EmploymentHistoryModule {
     const service = new EmploymentHistoryService(repository)
     const controller = new EmploymentHistoryController(service)
 
-    return {controller, service, repository}
+    return { controller, service, repository }
   }
 }

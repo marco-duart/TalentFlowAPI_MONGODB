@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 
-export function loginMiddleware(req: Request, res: Response, next: NextFunction) {
+export function authenticationMiddleware(req: Request, res: Response, next: NextFunction) {
     const { body } = req.body
 
     if(body.email === undefined) {

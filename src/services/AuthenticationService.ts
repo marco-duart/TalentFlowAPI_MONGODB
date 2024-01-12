@@ -1,13 +1,12 @@
 import { compare } from "bcrypt"
 import { sign } from "jsonwebtoken"
 
-import RecruiterRepository from "../repositories/RecruiterRepository";
-import CandidateRepository from "../repositories/CandidateRepository";
+import UserRepository from "../repositories/UserRepository";
 import { AuthenticationDTO } from "../dto/authenticationDTO";
 import { env } from "../configs/env";
 
 export class AuthenticationService {
-  constructor(private userRepository: RecruiterRepository | CandidateRepository) {}
+  constructor(private userRepository: UserRepository ) {}
 
   async login(data: AuthenticationDTO) {
 

@@ -11,6 +11,6 @@ export class FeedbackModule {
     const service = new FeedbackService(repository)
     const controller = new FeedbackController(service)
 
-    return {controller, service, repository}
+    return { controller, service, repository }
   }
 }

@@ -14,6 +14,7 @@ import { JobPostingModule } from "./modules/JobPostingModule";
 import { NotificationsModule } from "./modules/NotificationsModule";
 import { RecruiterModule } from "./modules/RecruiterModule";
 import { deleteCandidateMiddleware, getByIdCandidateMiddleware } from "./middlewares/candidateMiddleware";
+import { authenticationMiddleware } from "./middlewares/authenticationMiddleware";
 
 
 const router: Router = express.Router();
@@ -26,7 +27,7 @@ router.get("/", (req: Request, res: Response): void => {
 namespace AuthenticationRoutes {
   const { controller } = AuthenticationModule.make()
 
-  router.post("/login", controller.login.bind(controller))
+  router.post("/login", authenticationMiddleware, controller.login.bind(controller))
 }
 
 namespace ApplicationDocumentsRoutes {
