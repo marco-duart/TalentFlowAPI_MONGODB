@@ -27,7 +27,7 @@ router.get("/", (req: Request, res: Response): void => {
 namespace AuthenticationRoutes {
   const { controller } = AuthenticationModule.make()
 
-  router.post("/login", authenticationMiddleware, controller.login.bind(controller))
+  router.post("/login", logMiddleware, authenticationMiddleware, controller.login.bind(controller))
 }
 
 namespace ApplicationDocumentsRoutes {
