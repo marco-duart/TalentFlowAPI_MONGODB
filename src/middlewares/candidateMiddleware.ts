@@ -1,16 +1,27 @@
 import { NextFunction, Request, Response } from "express";
+import { ICreateCandidate, createCandidateValidate } from "../schemas/candidateSchemas";
+import yup from "yup"
 
-export function createCandidateMiddleware(req: Request, res: Response, next: NextFunction) {
+
+export async function createCandidateMiddleware(req: Request<{}, {}, ICreateCandidate>, res: Response, next: NextFunction) {
   const { body } = req
+
+  try {
+    const validateData: ICreateCandidate | undefined = await createCandidateValidate.validate(req.body)
+  } catch (error) {
+    const yupError = error as yup.ValidationError
+    return res.status(400).json({
+      errors: {
+        default: yupError.message
+      }
+    })
+  }
 
   if(body.name === undefined) {
     return res.status(400).send("Name is missing")
   }
   if(body.email === undefined) {
     return res.status(400).send("E-mail is missing")
-  }
-  if(body.password === undefined) {
-    return res.status(400).send("Password is missing")
   }
   if(body.phoneNumber === undefined) {
     return res.status(400).send("Phone Number is missing")
